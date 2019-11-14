@@ -5,8 +5,8 @@ using UnityEngine;
 public class LukashaMovement : MonoBehaviour
 {
 
-    public float movementSpeed = 20.0f;
-    public float rotationSpeed = 20.0f;
+    public float movementSpeed = 10.0f;
+    public float rotationSpeed = 10.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +23,7 @@ public class LukashaMovement : MonoBehaviour
         angle = Mathf.Atan2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"))* Mathf.Rad2Deg;
 
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)){
-            transform.GetChild(0).eulerAngles = new Vector3(0,angle,0);
+            transform.GetChild(0).rotation = Quaternion.Slerp(transform.GetChild(0).rotation, Quaternion.Euler(0, angle, 0), Time.deltaTime * rotationSpeed);
         }
     }
 }
