@@ -4,26 +4,55 @@ using UnityEngine;
 
 public class LukashaMovement : MonoBehaviour
 {
-
+    public float delay = 0.1f;
     public float movementSpeed = 10.0f;
     public float rotationSpeed = 10.0f;
+    public float offsetCamera = 10.0f;
+
+    float speed = 0.0f;
+
+    Animator anim;
+
+    GameObject cam;
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log(Mathf.Atan2(-1,-1)*Mathf.Rad2Deg);
+        anim = transform.GetChild(0).GetComponent<Animator>();
+        cam = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * rotationSpeed);
+        float vertical = Mathf.Abs(Input.GetAxis("Vertical"));
+        float horizontal = Mathf.Abs(Input.GetAxis("Horizontal"));
+
+        transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
         transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed, 0, 0);
+
+        //MOVER CAMARA CON EL PLAYER
+        cam.transform.position = new Vector3(transform.GetChild(0).position.x, 10, transform.GetChild(0).position.z - offsetCamera); 
+       
         var angle = 0f;
 
         angle = Mathf.Atan2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"))* Mathf.Rad2Deg;
 
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)){
+        if (Mathf.Abs(vertical) > delay || Mathf.Abs(horizontal) > delay){
             transform.GetChild(0).rotation = Quaternion.Slerp(transform.GetChild(0).rotation, Quaternion.Euler(0, angle, 0), Time.deltaTime * rotationSpeed);
+            //ESTE METODO HACE QUE EL PERSONAJE GIRE DE FORMA SUAVE
         }
+        //VELOCIDAD PARA ANIMACIONES
+        if (vertical != 0 && horizontal != 0)
+        {
+            speed = (vertical*1.5f) % 1.6f;
+        }
+        else 
+        {
+            speed = ((vertical + horizontal)*1.5f) % 1.6f;
+        }
+    
+        anim.SetFloat("VerticalVelocity", speed);
+
     }
 }
