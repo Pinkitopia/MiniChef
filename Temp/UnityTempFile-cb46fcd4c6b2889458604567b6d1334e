@@ -1,6 +1,6 @@
 /target:library
 /nowarn:0169
-/out:Temp/Assembly-CSharp.dll
+/out:Temp/Unity.TextMeshPro.dll
 /debug:portable
 /optimize-
 /nostdlib+
@@ -68,19 +68,27 @@
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.3f1\Editor\Data\Managed/UnityEngine/UnityEngine.XRModule.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.3f1\Editor\Data\Managed/UnityEditor.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.3f1\Editor\Data\Managed/Unity.Locator.dll"
-/reference:Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.TextMeshPro.dll
-/reference:Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.3f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.3f1/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.3f1/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.3f1/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.3f1/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.3f1/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.3f1/Editor/Data/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.3f1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.3f1/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.3f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.3f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.3f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/Editor/UnityEditor.SpatialTracking.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.3f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll"
-/reference:F:/CUARTO/WEB/GAME2/proyect/MiniChef/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll
-/reference:F:/CUARTO/WEB/GAME2/proyect/MiniChef/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll
-/reference:F:/CUARTO/WEB/GAME2/proyect/MiniChef/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll
+/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.3f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.3f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.3f1/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll"
+/reference:C:/Users/jack_/Documents/GitHub/Minichef/MiniChef/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll
+/reference:C:/Users/jack_/Documents/GitHub/Minichef/MiniChef/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll
+/reference:C:/Users/jack_/Documents/GitHub/Minichef/MiniChef/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll
+/reference:C:/Users/jack_/Documents/GitHub/Minichef/MiniChef/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll
+/reference:C:/Users/jack_/Documents/GitHub/Minichef/MiniChef/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.3f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.3f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\Microsoft.Win32.Primitives.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.3f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.AppContext.dll"
@@ -295,18 +303,62 @@
 /define:ENABLE_BURST_AOT
 /define:UNITY_TEAM_LICENSE
 /define:ENABLE_VSTU
+/define:UNITY_PRO_LICENSE
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
-"Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\Camera\vThirdPersonCamera.cs"
-"Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\CharacterController\vThirdPersonAnimator.cs"
-"Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\CharacterController\vThirdPersonController.cs"
-"Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\CharacterController\vThirdPersonInput.cs"
-"Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\CharacterController\vThirdPersonMotor.cs"
-"Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\Generic\vComment.cs"
-"Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\Generic\vDestroyGameObject.cs"
-"Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\Generic\vExtensions.cs"
-"Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\Generic\vPickupItem.cs"
-Assets\Scripts\Generador.cs
-Assets\Scripts\Movement.cs
-Assets\Scripts\PlayerController.cs
-Assets\Scripts\uwuntu.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\AssemblyInfo.cs.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\FastAction.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\MaterialReferenceManager.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TextContainer.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TextMeshPro.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TextMeshProUGUI.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_Asset.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_Character.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_CharacterInfo.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_ColorGradient.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_CoroutineTween.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_DefaultControls.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_Dropdown.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_EditorResourceManager.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_FontAsset.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_FontAssetCommon.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_FontAssetUtilities.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_FontFeaturesCommon.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_FontFeatureTable.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_InputField.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_InputValidator.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_LineInfo.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_ListPool.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_MaterialManager.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_MeshInfo.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_ObjectPool.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_PackageResourceImporter.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_RichTextTagsCommon.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_RichTextTagStack.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_ScrollbarEventHandler.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_SelectionCaret.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_Settings.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_ShaderUtilities.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_Sprite.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_SpriteAnimator.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_SpriteAsset.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_SpriteAssetImportFormats.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_SpriteCharacter.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_SpriteGlyph.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_Style.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_StyleSheet.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_SubMesh.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_SubMeshUI.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_Text.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_TextElement.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_TextElement_Legacy.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_TextInfo.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_TextParsingUtilities.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_TextUtilities.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_UpdateManager.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_UpdateRegistery.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMPro_EventManager.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMPro_ExtensionMethods.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMPro_MeshUtilities.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMPro_Private.cs
+C:\Users\jack_\Documents\GitHub\Minichef\MiniChef\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMPro_UGUI_Private.cs

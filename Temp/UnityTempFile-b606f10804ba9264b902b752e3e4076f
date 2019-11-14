@@ -91,11 +91,11 @@
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.3f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.3f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.3f1/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll"
-/reference:F:/CUARTO/WEB/GAME2/proyect/MiniChef/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll
-/reference:F:/CUARTO/WEB/GAME2/proyect/MiniChef/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll
-/reference:F:/CUARTO/WEB/GAME2/proyect/MiniChef/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll
-/reference:F:/CUARTO/WEB/GAME2/proyect/MiniChef/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll
-/reference:F:/CUARTO/WEB/GAME2/proyect/MiniChef/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll
+/reference:C:/Users/jack_/Documents/GitHub/Minichef/MiniChef/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll
+/reference:C:/Users/jack_/Documents/GitHub/Minichef/MiniChef/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll
+/reference:C:/Users/jack_/Documents/GitHub/Minichef/MiniChef/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll
+/reference:C:/Users/jack_/Documents/GitHub/Minichef/MiniChef/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll
+/reference:C:/Users/jack_/Documents/GitHub/Minichef/MiniChef/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.3f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.3f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.3f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\System.Core.dll"
@@ -313,6 +313,7 @@
 /define:ENABLE_BURST_AOT
 /define:UNITY_TEAM_LICENSE
 /define:ENABLE_VSTU
+/define:UNITY_PRO_LICENSE
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
 "Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\Camera\Editor\v3rdPersonCameraEditor.cs"

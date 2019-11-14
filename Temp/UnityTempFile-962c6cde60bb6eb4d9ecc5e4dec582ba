@@ -78,9 +78,9 @@
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.3f1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.3f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.3f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll"
-/reference:F:/CUARTO/WEB/GAME2/proyect/MiniChef/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll
-/reference:F:/CUARTO/WEB/GAME2/proyect/MiniChef/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll
-/reference:F:/CUARTO/WEB/GAME2/proyect/MiniChef/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll
+/reference:C:/Users/jack_/Documents/GitHub/Minichef/MiniChef/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll
+/reference:C:/Users/jack_/Documents/GitHub/Minichef/MiniChef/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll
+/reference:C:/Users/jack_/Documents/GitHub/Minichef/MiniChef/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.3f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.3f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\Microsoft.Win32.Primitives.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.3f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.AppContext.dll"
@@ -295,6 +295,7 @@
 /define:ENABLE_BURST_AOT
 /define:UNITY_TEAM_LICENSE
 /define:ENABLE_VSTU
+/define:UNITY_PRO_LICENSE
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
 "Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\Camera\vThirdPersonCamera.cs"
@@ -306,7 +307,11 @@
 "Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\Generic\vDestroyGameObject.cs"
 "Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\Generic\vExtensions.cs"
 "Assets\Invector-3rdPersonController\Basic Locomotion LITE\Scripts\Generic\vPickupItem.cs"
+Assets\Scripts\FoodState.cs
 Assets\Scripts\Generador.cs
+Assets\Scripts\Ingredient.cs
 Assets\Scripts\Movement.cs
+Assets\Scripts\Object.cs
 Assets\Scripts\PlayerController.cs
+Assets\Scripts\Tool.cs
 Assets\Scripts\uwuntu.cs

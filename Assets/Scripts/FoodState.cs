@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -72,4 +72,4 @@ public static class FoodState : MonoBehavior
         public static readonly ID diced = pepperoni[0];
         public static readonly ID cooked = pepperoni[1];
     }
-}
+}*/

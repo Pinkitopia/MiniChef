@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 using System.Collections;
 
 public interface Object
@@ -11,3 +11,4 @@ public interface Object
 
     public int getid();
 }
+*/
