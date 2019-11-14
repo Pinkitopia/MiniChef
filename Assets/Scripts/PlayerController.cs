@@ -42,15 +42,17 @@ public class PlayerController : MonoBehaviour
             transform.GetChild(0).rotation = Quaternion.Slerp(transform.GetChild(0).rotation, Quaternion.Euler(0, angle, 0), Time.deltaTime * rotationSpeed);
             //ESTE METODO HACE QUE EL PERSONAJE GIRE DE FORMA SUAVE
         }
-        //VELOCIDAD PARA ANIMACIONES
-        if (vertical != 0 && horizontal != 0)
-        {
-            speed = (vertical*1.5f) % 1.6f;
-        }
-        else 
-        {
-            speed = ((vertical + horizontal)*1.5f) % 1.6f;
-        }
+        //VELOCIDAD PARA ANIMACIONES ES UNA ÑAPA ENORME PERO FUNCIONA BIEN Y QUEDA GUAY Y NO SE HACERLO DE OTRA FORMA :D
+        if (vertical != 0 || horizontal != 0)
+            speed += 0.1f;
+        else
+            speed -= 0.1f;
+
+        if (speed > 1.5f)
+            speed = 1.5f;
+        if (speed < 0)
+            speed = 0;
+       
     
         anim.SetFloat("VerticalVelocity", speed);
 
