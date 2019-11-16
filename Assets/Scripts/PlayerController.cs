@@ -9,7 +9,12 @@ public class PlayerController : MonoBehaviour
     public float rotationSpeed = 10.0f;
     public float offsetCamera = 10.0f;
 
+    private float vertical = 0.0f;
+    private float horizontal = 0.0f;
+
     float speed = 0.0f;
+
+    public bool touchDetected = false;
 
     Animator anim;
 
@@ -25,8 +30,33 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float vertical = Mathf.Abs(Input.GetAxis("Vertical"));
-        float horizontal = Mathf.Abs(Input.GetAxis("Horizontal"));
+        //Si no se está tocando la pantalla, lanzamos el move Player
+        //Comprueba los input de teclado y ejecuta el movimiento.
+        if (!touchDetected) movePlayer();
+
+        animatePlayer();
+
+    }
+
+    void animatePlayer () {
+        //VELOCIDAD PARA ANIMACIONES ES UNA ÑAPA ENORME PERO FUNCIONA BIEN Y QUEDA GUAY Y NO SE HACERLO DE OTRA FORMA :D
+        if (vertical != 0 || horizontal != 0)
+            speed += 0.1f;
+        else
+            speed -= 0.1f;
+
+        if (speed > 1.5f)
+            speed = 1.5f;
+        if (speed < 0)
+            speed = 0;
+       
+    
+        anim.SetFloat("VerticalVelocity", speed);
+    }
+
+    void movePlayer () { //Mover al personaje CON EL TECLADO O UN CONTROLADOR
+        vertical = Mathf.Abs(Input.GetAxis("Vertical"));
+        horizontal = Mathf.Abs(Input.GetAxis("Horizontal"));
 
         transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
         transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed, 0, 0);
@@ -42,19 +72,29 @@ public class PlayerController : MonoBehaviour
             transform.GetChild(0).rotation = Quaternion.Slerp(transform.GetChild(0).rotation, Quaternion.Euler(0, angle, 0), Time.deltaTime * rotationSpeed);
             //ESTE METODO HACE QUE EL PERSONAJE GIRE DE FORMA SUAVE
         }
-        //VELOCIDAD PARA ANIMACIONES ES UNA ÑAPA ENORME PERO FUNCIONA BIEN Y QUEDA GUAY Y NO SE HACERLO DE OTRA FORMA :D
-        if (vertical != 0 || horizontal != 0)
-            speed += 0.1f;
-        else
-            speed -= 0.1f;
+        
+    }
 
-        if (speed > 1.5f)
-            speed = 1.5f;
-        if (speed < 0)
-            speed = 0;
+    public void moveMobilePlayer (Vector2 direction) {
+        //Mover al personaje CON LOS CONTROLES TÁCTILES (Joystick Virtual)
+        //ESTE MÉTODO ES EJECUTADO DESDE VIRTUALJOYSTICK.CS
+        vertical = Mathf.Abs(direction.y);
+        horizontal = Mathf.Abs(direction.x);
+
+
+        transform.Translate(0, 0, direction.y * Time.deltaTime * movementSpeed);
+        transform.Translate(direction.x * Time.deltaTime * movementSpeed, 0, 0);
+
+        //MOVER CAMARA CON EL PLAYER
+        cam.transform.position = new Vector3(transform.GetChild(0).position.x, 10, transform.GetChild(0).position.z - offsetCamera); 
        
-    
-        anim.SetFloat("VerticalVelocity", speed);
+        var angle = 0f;
 
+        angle = Mathf.Atan2(direction.x, direction.y)* Mathf.Rad2Deg;
+
+        if (Mathf.Abs(vertical) > delay || Mathf.Abs(horizontal) > delay){
+            transform.GetChild(0).rotation = Quaternion.Slerp(transform.GetChild(0).rotation, Quaternion.Euler(0, angle, 0), Time.deltaTime * rotationSpeed);
+            //ESTE METODO HACE QUE EL PERSONAJE GIRE DE FORMA SUAVE
+        }
     }
 }
