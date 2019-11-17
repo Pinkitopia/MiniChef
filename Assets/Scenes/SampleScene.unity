@@ -481,7 +481,7 @@ Transform:
   m_GameObject: {fileID: 217020628}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 6}
   m_Children:
   - {fileID: 187638968}
   m_Father: {fileID: 1704877525}
@@ -941,8 +941,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143116050}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.50000083}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5000002}
+  m_LocalScale: {x: 10, y: 10, z: 1.6666667}
   m_Children: []
   m_Father: {fileID: 187638968}
   m_RootOrder: 0
@@ -1032,6 +1032,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: V-bot@Highpoly
       objectReference: {fileID: 0}
+    - target: {fileID: 100132, guid: f32cd9f795c1282478d3bc3fbd8b2831, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 400132, guid: f32cd9f795c1282478d3bc3fbd8b2831, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1108,7 +1112,7 @@ GameObject:
   - component: {fileID: 1704877526}
   m_Layer: 0
   m_Name: handTool
-  m_TagString: Untagged
+  m_TagString: Tool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1171,9 +1175,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a88ec8250c6ac444b9ac6f2a2654b17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  distance: 100
   isActive: 0
+  player: {fileID: 0}
+  speed: 5
+  distance: 400
 --- !u!1 &1875667654 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100132, guid: f32cd9f795c1282478d3bc3fbd8b2831,
@@ -1301,6 +1306,7 @@ GameObject:
   - component: {fileID: 1910309099}
   - component: {fileID: 1910309098}
   - component: {fileID: 1910309100}
+  - component: {fileID: 1910309101}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1357,3 +1363,16 @@ MonoBehaviour:
   circle: {fileID: 1878535087}
   outerCircle: {fileID: 1464005853}
   spriteSize: 50
+--- !u!114 &1910309101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910309097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d2c9386806f1f4daa641d169185253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tool: {fileID: 0}
