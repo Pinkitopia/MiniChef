@@ -9,11 +9,19 @@ public class HandTool : MonoBehaviour
     public bool isActive = false;
     private Transform spring;
     private Transform hand;
+    private Transform endSpring;
 
     private float initialZ;
 
     private bool going = false;
     private bool back = false;
+
+    void Start()
+    {
+        spring = transform.GetChild(2);
+        hand = transform.GetChild(1);
+        endSpring = transform.GetChild(2).GetChild(0).GetChild(0);
+    }
 
     public void Action()
     {
@@ -22,11 +30,12 @@ public class HandTool : MonoBehaviour
         if (!back && !going)
         {
             spring.transform.localScale = Vector3.Lerp(spring.transform.localScale, new Vector3(1.0f, 1.0f, spring.transform.localScale.z + distance), Time.deltaTime * speed);
-            hand.transform.position = new Vector3(hand.transform.position.x, hand.transform.position.y, spring.transform.localPosition.z * spring.transform.localScale.z + 0.5f);
+            hand.transform.position = new Vector3(hand.transform.position.x, hand.transform.position.y, endSpring.transform.position.z + 0.5f);
         }
         else if (!back && going)
         {
             spring.transform.localScale = Vector3.Lerp(spring.transform.localScale, new Vector3(1.0f, 1.0f, 0.0f), Time.deltaTime * speed);
+            hand.transform.position = new Vector3(hand.transform.position.x, hand.transform.position.y, endSpring.transform.position.z + 0.5f);
         }
         else if (back && going)
         {
@@ -44,6 +53,7 @@ public class HandTool : MonoBehaviour
         else if(spring.transform.localScale.z <= 1.0f && going)
         {
             spring.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            hand.transform.position = new Vector3(hand.transform.position.x, hand.transform.position.y, endSpring.transform.position.z + 0.5f);
             back = true;
         }
 
@@ -51,11 +61,7 @@ public class HandTool : MonoBehaviour
         
     }
     
-    void Start()
-    {
-        spring = transform.GetChild(2);
-        hand = transform.GetChild(1);
-    }
+    
 
     
     void Update()
