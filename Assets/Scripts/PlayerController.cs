@@ -32,7 +32,8 @@ public class PlayerController : MonoBehaviour
     {
         //Si no se está tocando la pantalla, lanzamos el move Player
         //Comprueba los input de teclado y ejecuta el movimiento.
-        if (!touchDetected) movePlayer();
+        if (!touchDetected)
+            movePlayer();
 
         animatePlayer();
 
@@ -58,21 +59,21 @@ public class PlayerController : MonoBehaviour
         vertical = Mathf.Abs(Input.GetAxis("Vertical"));
         horizontal = Mathf.Abs(Input.GetAxis("Horizontal"));
 
-        transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
-        transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed, 0, 0);
-
-        //MOVER CAMARA CON EL PLAYER
-        cam.transform.position = new Vector3(transform.GetChild(0).position.x, 10, transform.GetChild(0).position.z - offsetCamera); 
-       
-        var angle = 0f;
-
-        angle = Mathf.Atan2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"))* Mathf.Rad2Deg;
-
         if (Mathf.Abs(vertical) > delay || Mathf.Abs(horizontal) > delay){
+            transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
+            transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed, 0, 0);
+
+            var angle = 0f;
+
+            angle = Mathf.Atan2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * Mathf.Rad2Deg;
+
             transform.GetChild(0).rotation = Quaternion.Slerp(transform.GetChild(0).rotation, Quaternion.Euler(0, angle, 0), Time.deltaTime * rotationSpeed);
             //ESTE METODO HACE QUE EL PERSONAJE GIRE DE FORMA SUAVE
+
         }
-        
+
+        //MOVER CAMARA CON EL PLAYER
+        cam.transform.position = new Vector3(transform.GetChild(0).position.x, 10, transform.GetChild(0).position.z - offsetCamera);
     }
 
     public void moveMobilePlayer (Vector2 direction) {
@@ -81,18 +82,17 @@ public class PlayerController : MonoBehaviour
         vertical = Mathf.Abs(direction.y);
         horizontal = Mathf.Abs(direction.x);
 
-
-        transform.Translate(0, 0, direction.y * Time.deltaTime * movementSpeed);
-        transform.Translate(direction.x * Time.deltaTime * movementSpeed, 0, 0);
-
-        //MOVER CAMARA CON EL PLAYER
-        cam.transform.position = new Vector3(transform.GetChild(0).position.x, 10, transform.GetChild(0).position.z - offsetCamera); 
-       
-        var angle = 0f;
-
-        angle = Mathf.Atan2(direction.x, direction.y)* Mathf.Rad2Deg;
-
         if (Mathf.Abs(vertical) > delay || Mathf.Abs(horizontal) > delay){
+            transform.Translate(0, 0, direction.y * Time.deltaTime * movementSpeed);
+            transform.Translate(direction.x * Time.deltaTime * movementSpeed, 0, 0);
+
+            //MOVER CAMARA CON EL PLAYER
+            cam.transform.position = new Vector3(transform.GetChild(0).position.x, 10, transform.GetChild(0).position.z - offsetCamera);
+
+            var angle = 0f;
+
+            angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+
             transform.GetChild(0).rotation = Quaternion.Slerp(transform.GetChild(0).rotation, Quaternion.Euler(0, angle, 0), Time.deltaTime * rotationSpeed);
             //ESTE METODO HACE QUE EL PERSONAJE GIRE DE FORMA SUAVE
         }
