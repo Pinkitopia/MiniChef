@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -598,6 +598,7 @@ GameObject:
   - component: {fileID: 517219294}
   - component: {fileID: 517219293}
   - component: {fileID: 517219292}
+  - component: {fileID: 517219296}
   - component: {fileID: 517219291}
   - component: {fileID: 517219295}
   m_Layer: 0
@@ -694,8 +695,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 0
   player: {fileID: 0}
+  playerNear: 0
   touchDetected: 0
   offsetCamera: 10
+  movementSpeed: 10
+--- !u!65 &517219296
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517219290}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.319169, y: 3.0179455, z: 1.8796257}
+  m_Center: {x: -0.14178991, y: -0.028999807, z: -0.43981284}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,6 +1233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1704877525}
   - component: {fileID: 1704877524}
+  - component: {fileID: 1704877527}
   - component: {fileID: 1704877523}
   - component: {fileID: 1704877526}
   m_Layer: 0
@@ -1286,8 +1303,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 0
   player: {fileID: 0}
+  playerNear: 0
   speed: 5
   distance: 400
+--- !u!65 &1704877527
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704877522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.3759048, y: 1, z: 4.3027883}
+  m_Center: {x: 0.035497308, y: 0, z: 0.5384166}
 --- !u!1 &1875667654 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100132, guid: f32cd9f795c1282478d3bc3fbd8b2831,
