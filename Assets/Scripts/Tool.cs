@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Tool : MonoBehaviour
 {
+
+    
     public bool isActive = false;
     public GameObject player;
 
