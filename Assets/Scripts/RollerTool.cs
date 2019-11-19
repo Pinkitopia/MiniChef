@@ -21,7 +21,7 @@ public class RollerTool : Tool
     void Start()
     {
         base.Start();
-        controller = player.GetComponent<PlayerController>();
+        controller = GameObject.FindGameObjectWithTag("PlayerGameObject").GetComponent<PlayerController>();
         cam = GameObject.FindGameObjectWithTag("MainCamera");
 
         colliders = GetComponents<Collider>();
@@ -42,16 +42,21 @@ public class RollerTool : Tool
 
     public override void MoveAction()
     {
-        player.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        player.transform.position = new Vector3(transform.position.x, transform.position.y+2, transform.position.z);
 
-        //controller.disable();
+        controller.disable();
         enabled = true;
+
+        GameObject.FindGameObjectWithTag("PlayerGameObject").transform.SetParent(transform);
+
     }
 
     public override void RemoveAction()
     {
-        //controller.enable();
+        controller.enable();
         enabled = false;
+
+        GameObject.FindGameObjectWithTag("PlayerGameObject").transform.parent = null;
     }
 
     private void moveRoller () {
@@ -67,10 +72,10 @@ public class RollerTool : Tool
     }
 
     public void mobileMoveRoller (Vector2 direction) {
-        float horizontal = Mathf.Abs(direction.x);
+        float horizontal = direction.x;
 
         if (Mathf.Abs(horizontal) > 0.1f){
-            transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed, 0, 0);
+            transform.Translate(horizontal * Time.deltaTime * movementSpeed, 0, 0);
         }
 
         //MOVER CAMARA CON EL PLAYER

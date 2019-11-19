@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     Animator anim;
 
     GameObject cam;
+
+    [SerializeField]
+    private bool enabled = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,10 +35,10 @@ public class PlayerController : MonoBehaviour
     {
         //Si no se está tocando la pantalla, lanzamos el move Player
         //Comprueba los input de teclado y ejecuta el movimiento.
-        if (!touchDetected)
+        if (!touchDetected && enabled)
             movePlayer();
 
-        animatePlayer();
+        if (enabled) animatePlayer();
 
     }
 
@@ -77,6 +80,11 @@ public class PlayerController : MonoBehaviour
     }
 
     public void moveMobilePlayer (Vector2 direction) {
+
+        if (!enabled){
+            transform.parent.gameObject.GetComponent<RollerTool>().mobileMoveRoller(direction);
+            return;
+        }
         //Mover al personaje CON LOS CONTROLES TÁCTILES (Joystick Virtual)
         //ESTE MÉTODO ES EJECUTADO DESDE VIRTUALJOYSTICK.CS
         vertical = Mathf.Abs(direction.y);
@@ -96,5 +104,13 @@ public class PlayerController : MonoBehaviour
             transform.GetChild(0).rotation = Quaternion.Slerp(transform.GetChild(0).rotation, Quaternion.Euler(0, angle, 0), Time.deltaTime * rotationSpeed);
             //ESTE METODO HACE QUE EL PERSONAJE GIRE DE FORMA SUAVE
         }
+    }
+
+    public void enable () {
+        enabled = true;
+    }
+
+    public void disable () {
+        enabled = false;
     }
 }
