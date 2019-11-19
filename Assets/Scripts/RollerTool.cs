@@ -16,11 +16,15 @@ public class RollerTool : Tool
 
     public float movementSpeed = 10.0f;
 
+    private Collider[] colliders;
+
     void Start()
     {
         base.Start();
         controller = player.GetComponent<PlayerController>();
         cam = GameObject.FindGameObjectWithTag("MainCamera");
+
+        colliders = GetComponents<Collider>();
     }
 
     // Update is called once per frame
@@ -72,6 +76,28 @@ public class RollerTool : Tool
         //MOVER CAMARA CON EL PLAYER
         cam.transform.position = new Vector3(transform.position.x, 10, transform.position.z - offsetCamera);
     
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.Equals(player))
+        {
+            playerNear = true;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.Equals(player))
+        {
+            playerNear = true;
+        }
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        playerNear = false;
     }
 
 

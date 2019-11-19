@@ -6,7 +6,7 @@ public class PlayerAction : MonoBehaviour
 {
     public Tool tool = null;
     private bool toolTaken = false;
-    
+
 
     private GameObject[] availableTools;
 
@@ -14,13 +14,15 @@ public class PlayerAction : MonoBehaviour
     void Start()
     {
         availableTools = GameObject.FindGameObjectsWithTag("Tool");
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && toolTaken)
+
+        //SOLTAR LA HERRAMIENTA SI LA TENEMOS Y PULSAMOS SPACE
+        if (Input.GetKeyUp(KeyCode.Space) && toolTaken)
         {
             tool.RemoveAction();
             tool = null;
@@ -28,32 +30,38 @@ public class PlayerAction : MonoBehaviour
             return;
         }
 
-        foreach (GameObject obj in availableTools)
+        if (!toolTaken)
         {
-            Vector3 vecPO = obj.transform.position - transform.position;
-            float distancePO = vecPO.sqrMagnitude;
-
-            //SI EL PERSONAJE ESTA A DISTANCIA 5 DE LA HERRAMIENTA QUE LA PUEDA COGER
-            if(distancePO < 25.0f)
+            //COMPRUEBA POR CADA HERRAMIENTA LA DISTANCIA AL JUGADOR
+            foreach (GameObject obj in availableTools)
             {
-                if (Input.GetKeyDown(KeyCode.Space) && !toolTaken)
+                Debug.Log("Comprobando objeto " + obj);
+
+                if (obj.GetComponent<Tool>().playerNear)
                 {
-                    //COGER HERRAMIENTA
-                    tool = obj.GetComponent<Tool>();
-                    tool.MoveAction();
-                    toolTaken = true;
+                    Debug.Log("Estoy cerca");
+                    if (Input.GetKeyUp(KeyCode.Space) && !toolTaken)
+                    {
+                        //COGER HERRAMIENTA
+                        tool = obj.GetComponent<Tool>();
+                        tool.MoveAction();
+                        toolTaken = true;
+                    }
                 }
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.M) && toolTaken)
+
+        //ACTIVAR HERRAMIENTA (SU ACCION PROPIA) SI LA TENEMOS COGIDA
+        if (Input.GetKeyUp(KeyCode.M) && toolTaken)
         {
             if (!tool.isActive)
             {
                 tool.Action();
             }
         }
-        
-        
+
+
     }
 }
+

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Tool : MonoBehaviour
 {
-
-    
     public bool isActive = false;
     public GameObject player;
+    public bool playerNear;
 
     protected void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        playerNear = false;
     }
 
     public virtual bool Action()
