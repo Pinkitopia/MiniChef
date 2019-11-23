@@ -1,9 +1,34 @@
-﻿/*using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tool : MonoBehavior, Object
+public class Tool : MonoBehaviour
 {
+    public bool isActive = false;
+    public GameObject player;
+    public bool playerNear;
+
+    protected void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerNear = false;
+    }
+
+    public virtual bool Action()
+    {
+        return true;
+    }
+
+    public virtual void MoveAction()
+    {
+
+    }
+
+    public virtual void RemoveAction()
+    {
+
+    }
+    /*
     public int getId() => id;
 
     public bool action()
@@ -25,6 +50,5 @@ public class Tool : MonoBehavior, Object
         }
 
         return done;
-    }
+    }*/
 }
-*/
