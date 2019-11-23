@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\Generador.cs" />
      <Compile Include="Assets\Scripts\HandTool.cs" />
      <Compile Include="Assets\Scripts\Ingredient.cs" />
+     <Compile Include="Assets\Scripts\Interactive.cs" />
      <Compile Include="Assets\Scripts\Movement.cs" />
      <Compile Include="Assets\Scripts\Object.cs" />
      <Compile Include="Assets\Scripts\PlayerAction.cs" />

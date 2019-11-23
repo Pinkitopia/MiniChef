@@ -61,13 +61,22 @@ public class Ingredient : Object
     //Receives tool Id
     public bool updateState(int toolID)
     {
-        //Depending on the toolID and the foodId it gives a consequent state change 
-        // using the GDD tree of states
+        switch (toolID) {
+            //pan
+            case 1:
+                break;
+            //pot
+            case 2:
+                break;
+            //oven
+            case 3:
+                break;
+            default:
+                return false;
 
+        }
 
-
-
-        //return para evitar errores de consola, borrar antes de debugear
+        //return para evitar errores de compilación, borrar antes de debugear
         return true;
     }
 }
