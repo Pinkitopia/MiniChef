@@ -63,7 +63,7 @@ public class RollerTool : Tool
         float horizontal = Mathf.Abs(Input.GetAxis("Horizontal"));
 
         if (Mathf.Abs(horizontal) > 0.1f){
-            transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed, 0, 0);
+            transform.Translate(0, 0, Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed);
         }
 
         //MOVER CAMARA CON EL PLAYER
@@ -75,7 +75,7 @@ public class RollerTool : Tool
         float horizontal = direction.x;
 
         if (Mathf.Abs(horizontal) > 0.1f){
-            transform.Translate(horizontal * Time.deltaTime * movementSpeed, 0, 0);
+            transform.Translate(0, 0, horizontal * Time.deltaTime * movementSpeed);
         }
 
         //MOVER CAMARA CON EL PLAYER

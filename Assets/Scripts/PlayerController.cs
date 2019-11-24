@@ -19,15 +19,17 @@ public class PlayerController : MonoBehaviour
     Animator anim;
 
     GameObject cam;
+    GameObject camTrigger;
 
     [SerializeField]
     private bool enabled = true;
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(Mathf.Atan2(-1,-1)*Mathf.Rad2Deg);
         anim = transform.GetChild(0).GetComponent<Animator>();
         cam = GameObject.FindGameObjectWithTag("MainCamera");
+        cam.transform.position = new Vector3(transform.GetChild(0).position.x, 10, transform.GetChild(0).position.z - offsetCamera);
+        camTrigger = GameObject.FindGameObjectWithTag("CameraTrigger");
     }
 
     // Update is called once per frame
@@ -74,9 +76,14 @@ public class PlayerController : MonoBehaviour
             //ESTE METODO HACE QUE EL PERSONAJE GIRE DE FORMA SUAVE
 
         }
+        Debug.Log(camTrigger.GetComponent<CameraTrigger>().getPositionY());
 
+        
+        cam.transform.position = Vector3.Slerp(cam.transform.position, new Vector3(transform.GetChild(0).position.x, camTrigger.GetComponent<CameraTrigger>().getPositionY(), transform.GetChild(0).position.z - offsetCamera), Time.deltaTime * camTrigger.GetComponent<CameraTrigger>().speed);
+        
         //MOVER CAMARA CON EL PLAYER
-        cam.transform.position = new Vector3(transform.GetChild(0).position.x, 10, transform.GetChild(0).position.z - offsetCamera);
+        
+        cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, Quaternion.Euler(camTrigger.GetComponent<CameraTrigger>().getRotationX(), 0, 0), Time.deltaTime * camTrigger.GetComponent<CameraTrigger>().speed);
     }
 
     public void moveMobilePlayer (Vector2 direction) {
@@ -95,7 +102,7 @@ public class PlayerController : MonoBehaviour
             transform.Translate(direction.x * Time.deltaTime * movementSpeed, 0, 0);
 
             //MOVER CAMARA CON EL PLAYER
-            cam.transform.position = new Vector3(transform.GetChild(0).position.x, 10, transform.GetChild(0).position.z - offsetCamera);
+            cam.transform.position = new Vector3(transform.GetChild(0).position.x, cam.transform.position.y, transform.GetChild(0).position.z - offsetCamera);
 
             var angle = 0f;
 

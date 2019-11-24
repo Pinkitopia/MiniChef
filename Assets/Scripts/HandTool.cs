@@ -17,6 +17,8 @@ public class HandTool : Tool
     private bool going = false;
     private bool back = false;
 
+    private bool isTaken = false;
+
     private Collider[] colliders;
 
     void Start()
@@ -48,6 +50,10 @@ public class HandTool : Tool
         colliders[1].enabled = false;
         transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 2.5f, player.transform.position.z);
         transform.SetParent(player.transform);
+        transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
+
+        isTaken = true;
+
     }
 
     //SE DESCOLOCA LA HERRAMIENTA EN EL JUGADOR (DEPENDE DE CADA HERRAMIENTA)
@@ -61,12 +67,13 @@ public class HandTool : Tool
         transform.parent = null;
         transform.position = new Vector3(player.transform.position.x + 2.5f, player.transform.position.y, player.transform.position.z + 2.5f);
 
+        isTaken = false;
     }
 
     //ANIMACIÓN DE LA MANO
     public void Animation()
     {
-        Debug.Log("ME ESTIRO");
+        
 
         if (!back && !going)
         {
@@ -86,7 +93,7 @@ public class HandTool : Tool
 
         }
 
-        Debug.Log(going);
+        
 
         if (spring.transform.localScale.z >= initialZ + distance)
         {
@@ -111,6 +118,12 @@ public class HandTool : Tool
             isActive = true;
             initialZ = spring.transform.localScale.z;
         }*/
+        if (isTaken)
+        {
+            transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 2.5f, player.transform.position.z);
+        }
+
+       
 
         if (isActive)
         {

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tool
   - PlayerGameObject
+  - CameraTrigger
   layers:
   - Default
   - TransparentFX

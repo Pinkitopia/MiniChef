@@ -14,7 +14,6 @@ public class PlayerAction : MonoBehaviour
     void Start()
     {
         availableTools = GameObject.FindGameObjectsWithTag("Tool");
-
     }
 
     // Update is called once per frame
@@ -32,14 +31,15 @@ public class PlayerAction : MonoBehaviour
 
         if (!toolTaken)
         {
-            //COMPRUEBA POR CADA HERRAMIENTA LA DISTANCIA AL JUGADOR
+            
             foreach (GameObject obj in availableTools)
             {
-                Debug.Log("Comprobando objeto " + obj);
+                
 
                 if (obj.GetComponent<Tool>().playerNear)
                 {
                     Debug.Log("Estoy cerca");
+                    
                     if (Input.GetKeyUp(KeyCode.Space) && !toolTaken)
                     {
                         //COGER HERRAMIENTA
