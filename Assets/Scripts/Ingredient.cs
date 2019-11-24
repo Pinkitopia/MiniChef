@@ -5,8 +5,17 @@ using UnityEngine;
 public class Ingredient : Object
 {
     int id = -1;
+
     protected ID state;
     /*
+
+    ID state;
+    /*
+     * Cada ingrediente tiene un ID asignado (ver FoodState.cs)
+     * Encauzamos el constructor en función del ID pues hay distintos
+     * estados iniciales según qué ingrediente. La mayoría empieza en RAW
+     */
+
     Ingredient(int id)
     {
         this.id = id;
@@ -42,7 +51,9 @@ public class Ingredient : Object
                 break;
         }
     }
-    */
+
+    
+
 
     public bool action()
     {
@@ -58,6 +69,7 @@ public class Ingredient : Object
     //Receives tool Id
     public bool updateState(int toolID)
     {
+
         return false;
     }
 
@@ -92,5 +104,24 @@ public class Ingredient : Object
     public virtual bool cut()
     {
         return false;
+
+        switch (toolID) {
+            //pan
+            case 1:
+                break;
+            //pot
+            case 2:
+                break;
+            //oven
+            case 3:
+                break;
+            default:
+                return false;
+
+        }
+
+        //return para evitar errores de compilación, borrar antes de debugear
+        return true;
+
     }
 }
