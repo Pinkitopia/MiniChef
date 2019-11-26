@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
             //ESTE METODO HACE QUE EL PERSONAJE GIRE DE FORMA SUAVE
 
         }
-        Debug.Log(camTrigger.GetComponent<CameraTrigger>().getPositionY());
+        //Debug.Log(camTrigger.GetComponent<CameraTrigger>().getPositionY());
 
         
         cam.transform.position = Vector3.Slerp(cam.transform.position, new Vector3(transform.GetChild(0).position.x, camTrigger.GetComponent<CameraTrigger>().getPositionY(), transform.GetChild(0).position.z - offsetCamera), Time.deltaTime * camTrigger.GetComponent<CameraTrigger>().speed);

@@ -1,10 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public interface Object
+public class Object : MonoBehaviour
 {
     //Triggers object's action
-    bool action();
+    public virtual bool action() {
+        return false;
+    }
 
-    int getId();
+
+    public virtual int getId() {
+        return 0;
+    }
 }
