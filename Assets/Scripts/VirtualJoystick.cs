@@ -53,7 +53,7 @@ public class VirtualJoystick : MonoBehaviour {
             //Y por tanto, a donde debemos mover el personaje
             moveCharacter(direction);
             //Lo movemos
-            Vector2 newDirection = direction*(spriteSize/2)*-1;
+            Vector2 newDirection = direction*(spriteSize/2-2f)*-1;
             //Multiplicamos la dirección por el tamaño del sprite entre 4, para mover el
             //joystick interno (Donde se dibuja en la pantalla)
             circle.position = new Vector2(screenPoint.x - newDirection.x, screenPoint.y - newDirection.y);
