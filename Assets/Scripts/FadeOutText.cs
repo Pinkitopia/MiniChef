@@ -23,9 +23,9 @@ public class FadeOutText : MonoBehaviour
     {
         for (float f = 1f; f >= -0.05f; f -= 0.05f)
         {
-            Color c = rend.material.color;
+            Color c = rend.color;
             c.a = f;
-            rend.material.color = c;
+            rend.color = c;
             yield return new WaitForSeconds(0.05f);
         }
     }
