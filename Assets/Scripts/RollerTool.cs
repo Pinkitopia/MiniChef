@@ -49,6 +49,8 @@ public class RollerTool : Tool
 
         GameObject.FindGameObjectWithTag("PlayerGameObject").transform.SetParent(transform);
 
+        GetComponentInChildren<FadeOutSprite>().startFading();
+
     }
 
     public override void RemoveAction()
@@ -57,6 +59,8 @@ public class RollerTool : Tool
         enabled = false;
 
         GameObject.FindGameObjectWithTag("PlayerGameObject").transform.parent = null;
+
+        GetComponentInChildren<FadeIn>().startFading();
     }
 
     private void moveRoller () {
@@ -85,8 +89,10 @@ public class RollerTool : Tool
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.gameObject.Equals(player))
         {
+            GetComponentInChildren<FadeIn>().startFading();
             playerNear = true;
         }
     }
@@ -102,8 +108,13 @@ public class RollerTool : Tool
 
     private void OnTriggerExit(Collider other)
     {
+        if (other.gameObject.Equals(player))
+        {
+            GetComponentInChildren<FadeOutSprite>().startFading();
+
+        }
+
         playerNear = false;
     }
-
 
 }

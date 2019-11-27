@@ -34,8 +34,6 @@ public class PlayerAction : MonoBehaviour
             
             foreach (GameObject obj in availableTools)
             {
-                
-
                 if (obj.GetComponent<Tool>().playerNear)
                 {
                     Debug.Log("Estoy cerca");

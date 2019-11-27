@@ -120,8 +120,11 @@ public class HandTool : Tool
         }*/
         if (isTaken)
         {
+            
             transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 2.5f, player.transform.position.z);
+            
         }
+       
 
        
 
@@ -133,8 +136,10 @@ public class HandTool : Tool
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.gameObject.Equals(player))
         {
+            GetComponentInChildren<FadeIn>().startFading();
             playerNear = true;
         }
     }
@@ -150,6 +155,12 @@ public class HandTool : Tool
 
     private void OnTriggerExit(Collider other)
     {
+        if (other.gameObject.Equals(player))
+        {
+            GetComponentInChildren<FadeOutSprite>().startFading();
+            
+        }
+        
         playerNear = false;
     }
 }
