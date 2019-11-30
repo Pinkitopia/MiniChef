@@ -77,13 +77,20 @@ public class PlayerController : MonoBehaviour
 
         }
         //Debug.Log(camTrigger.GetComponent<CameraTrigger>().getPositionY());
-
+        if (camTrigger.GetComponent<CameraTrigger>().moveX)
+        {
+            cam.transform.position = Vector3.Slerp(cam.transform.position, new Vector3(camTrigger.GetComponent<CameraTrigger>().getPositionX(), camTrigger.GetComponent<CameraTrigger>().getPositionY(), camTrigger.GetComponent<CameraTrigger>().getPositionZ() - offsetCamera), Time.deltaTime * camTrigger.GetComponent<CameraTrigger>().speed);
+        }
+        else
+        {
+            cam.transform.position = Vector3.Slerp(cam.transform.position, new Vector3(transform.GetChild(0).position.x, camTrigger.GetComponent<CameraTrigger>().getPositionY(), transform.GetChild(0).position.z - offsetCamera), Time.deltaTime * camTrigger.GetComponent<CameraTrigger>().speed);
+        }
         
-        cam.transform.position = Vector3.Slerp(cam.transform.position, new Vector3(transform.GetChild(0).position.x, camTrigger.GetComponent<CameraTrigger>().getPositionY(), transform.GetChild(0).position.z - offsetCamera), Time.deltaTime * camTrigger.GetComponent<CameraTrigger>().speed);
+        
         
         //MOVER CAMARA CON EL PLAYER
         
-        cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, Quaternion.Euler(camTrigger.GetComponent<CameraTrigger>().getRotationX(), 0, 0), Time.deltaTime * camTrigger.GetComponent<CameraTrigger>().speed);
+        cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, Quaternion.Euler(camTrigger.GetComponent<CameraTrigger>().getRotationX(), camTrigger.GetComponent<CameraTrigger>().getRotationY(), 0), Time.deltaTime * camTrigger.GetComponent<CameraTrigger>().speed);
     }
 
     public void moveMobilePlayer (Vector2 direction) {
