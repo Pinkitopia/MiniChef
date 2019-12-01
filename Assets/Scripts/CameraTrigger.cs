@@ -38,6 +38,7 @@ public class CameraTrigger : MonoBehaviour
         
         if (other.gameObject.Equals(player))
         {
+            
             speed = 2.0f;
             active = true;
 
@@ -60,8 +61,7 @@ public class CameraTrigger : MonoBehaviour
         
         if (other.gameObject.Equals(player))
         {
-           
-            active = true;
+           active = true;
         }
 
     }

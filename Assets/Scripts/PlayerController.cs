@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     Animator anim;
 
     GameObject cam;
-    GameObject camTrigger;
+    public GameObject[] camTriggers;
 
     [SerializeField]
     private bool enabled = true;
@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
         anim = transform.GetChild(0).GetComponent<Animator>();
         cam = GameObject.FindGameObjectWithTag("MainCamera");
         cam.transform.position = new Vector3(transform.GetChild(0).position.x, 10, transform.GetChild(0).position.z - offsetCamera);
-        camTrigger = GameObject.FindGameObjectWithTag("CameraTrigger");
+        
     }
 
     // Update is called once per frame
@@ -76,21 +76,53 @@ public class PlayerController : MonoBehaviour
             //ESTE METODO HACE QUE EL PERSONAJE GIRE DE FORMA SUAVE
 
         }
-        //Debug.Log(camTrigger.GetComponent<CameraTrigger>().getPositionY());
-        if (camTrigger.GetComponent<CameraTrigger>().moveX)
+        if (camTriggers[0].GetComponent<CameraTrigger>().isActive())
         {
-            cam.transform.position = Vector3.Slerp(cam.transform.position, new Vector3(camTrigger.GetComponent<CameraTrigger>().getPositionX(), camTrigger.GetComponent<CameraTrigger>().getPositionY(), camTrigger.GetComponent<CameraTrigger>().getPositionZ() - offsetCamera), Time.deltaTime * camTrigger.GetComponent<CameraTrigger>().speed);
+            if (camTriggers[0].GetComponent<CameraTrigger>().moveX)
+            {
+                cam.transform.position = Vector3.Slerp(cam.transform.position, new Vector3(camTriggers[0].GetComponent<CameraTrigger>().getPositionX(), camTriggers[0].GetComponent<CameraTrigger>().getPositionY(), camTriggers[0].GetComponent<CameraTrigger>().getPositionZ() - offsetCamera), Time.deltaTime * camTriggers[0].GetComponent<CameraTrigger>().speed);
+            }
+            else
+            {
+
+                cam.transform.position = Vector3.Slerp(cam.transform.position, new Vector3(transform.GetChild(0).position.x, camTriggers[0].GetComponent<CameraTrigger>().getPositionY(), transform.GetChild(0).position.z - offsetCamera), Time.deltaTime * camTriggers[0].GetComponent<CameraTrigger>().speed);
+            }
+
+            cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, Quaternion.Euler(camTriggers[0].GetComponent<CameraTrigger>().getRotationX(), camTriggers[0].GetComponent<CameraTrigger>().getRotationY(), 0), Time.deltaTime * camTriggers[0].GetComponent<CameraTrigger>().speed);
+        }
+        else if (camTriggers[1].GetComponent<CameraTrigger>().isActive())
+        {
+            if (camTriggers[1].GetComponent<CameraTrigger>().moveX)
+            {
+                cam.transform.position = Vector3.Slerp(cam.transform.position, new Vector3(camTriggers[1].GetComponent<CameraTrigger>().getPositionX(), camTriggers[1].GetComponent<CameraTrigger>().getPositionY(), camTriggers[1].GetComponent<CameraTrigger>().getPositionZ() - offsetCamera), Time.deltaTime * camTriggers[1].GetComponent<CameraTrigger>().speed);
+            }
+            else
+            {
+
+                cam.transform.position = Vector3.Slerp(cam.transform.position, new Vector3(transform.GetChild(0).position.x, camTriggers[1].GetComponent<CameraTrigger>().getPositionY(), transform.GetChild(0).position.z - offsetCamera), Time.deltaTime * camTriggers[1].GetComponent<CameraTrigger>().speed);
+            }
+
+            cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, Quaternion.Euler(camTriggers[1].GetComponent<CameraTrigger>().getRotationX(), camTriggers[1].GetComponent<CameraTrigger>().getRotationY(), 0), Time.deltaTime * camTriggers[1].GetComponent<CameraTrigger>().speed);
+
+            //Debug.Log(camTrigger.GetComponent<CameraTrigger>().getPositionY());
+
+
         }
         else
         {
-            cam.transform.position = Vector3.Slerp(cam.transform.position, new Vector3(transform.GetChild(0).position.x, camTrigger.GetComponent<CameraTrigger>().getPositionY(), transform.GetChild(0).position.z - offsetCamera), Time.deltaTime * camTrigger.GetComponent<CameraTrigger>().speed);
+            cam.transform.position = Vector3.Slerp(cam.transform.position, new Vector3(transform.GetChild(0).position.x, camTriggers[1].GetComponent<CameraTrigger>().getPositionY(), transform.GetChild(0).position.z - offsetCamera), Time.deltaTime * camTriggers[1].GetComponent<CameraTrigger>().speed);
+            cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, Quaternion.Euler(camTriggers[0].GetComponent<CameraTrigger>().getRotationX(), camTriggers[0].GetComponent<CameraTrigger>().getRotationY(), 0), Time.deltaTime * camTriggers[0].GetComponent<CameraTrigger>().speed);
         }
+            
+            //MOVER CAMARA CON EL PLAYER
+
+            
         
         
         
-        //MOVER CAMARA CON EL PLAYER
         
-        cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, Quaternion.Euler(camTrigger.GetComponent<CameraTrigger>().getRotationX(), camTrigger.GetComponent<CameraTrigger>().getRotationY(), 0), Time.deltaTime * camTrigger.GetComponent<CameraTrigger>().speed);
+        
+        
     }
 
     public void moveMobilePlayer (Vector2 direction) {
