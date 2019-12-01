@@ -21,9 +21,10 @@ public class FallDown : MonoBehaviour
             GetComponent<Rigidbody>().isKinematic = true;
         }
 
-        if(col.gameObject.tag == "Player")
+        if (col.gameObject.tag == "Player")
         {
             GetComponent<Rigidbody>().isKinematic = false;
         }
+       
     }
 }

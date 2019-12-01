@@ -24,49 +24,82 @@ public class MyMobile : MonoBehaviour
         Vector3 vec = hand.transform.position - transform.position;
         float dis = vec.magnitude;
 
-        if(dis < 5.0f && handTool.GetComponent<HandTool>().isActive)
+        if(this.gameObject.tag == "Ingredient")
         {
-            isTaken = true;
-        }
-        else
-        {
-            isTaken = false;
-        }
-
-        
-        if (isTaken)
-        {
-            transform.GetComponent<Collider>().enabled = false;
-
-            switch (blockAxis) //BLOQUEA SOBRE EJES (PARA CAJONES POR EJEMPLO)
+            if (dis < 5.0f && handTool.GetComponent<HandTool>().isActive)
             {
-                case "X":
-                    transform.position = new Vector3(hand.transform.position.x, transform.position.y, transform.position.z);
-                    break;
-                case "x":
-                    transform.position = new Vector3(hand.transform.position.x, transform.position.y, transform.position.z);
-                    break;
-                case "Y":
-                    transform.position = new Vector3(transform.position.x, hand.transform.position.y, transform.position.z);
-                    break;
-                case "y":
-                    transform.position = new Vector3(transform.position.x, hand.transform.position.y, transform.position.z);
-                    break;
-                case "Z":
-                    transform.position = new Vector3(transform.position.x, transform.position.y, hand.transform.position.z);
-                    break;
-                case "z":
-                    transform.position = new Vector3(transform.position.x, transform.position.y, hand.transform.position.z);
-                    break;
-                default:
-                    transform.position = hand.transform.position;
-                    break;
+                isTaken = true;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                isTaken = false;
             }
             
         }
         else
         {
-            transform.GetComponent<Collider>().enabled = true;
+            if (dis < 5.0f && handTool.GetComponent<HandTool>().isActive)
+            {
+                isTaken = true;
+            }
+            else
+            {
+                isTaken = false;
+            }
+        }
+        
+
+        
+        if (isTaken)
+        {
+            
+
+            GameObject handSon = hand.transform.GetChild(0).gameObject;
+
+            if(this.gameObject.tag == "Ingredient") //INGREDIENTES
+            {
+                transform.GetComponent<Rigidbody>().detectCollisions = false;
+                transform.position = handSon.transform.position;
+            }
+            else //CAJONES Y OTRAS COSAS
+            {
+                switch (blockAxis) //BLOQUEA SOBRE EJES (PARA CAJONES POR EJEMPLO)
+                {
+                    case "X":
+                        transform.position = new Vector3(hand.transform.position.x, transform.position.y, transform.position.z);
+                        break;
+                    case "x":
+                        transform.position = new Vector3(hand.transform.position.x, transform.position.y, transform.position.z);
+                        break;
+                    case "Y":
+                        transform.position = new Vector3(transform.position.x, hand.transform.position.y, transform.position.z);
+                        break;
+                    case "y":
+                        transform.position = new Vector3(transform.position.x, hand.transform.position.y, transform.position.z);
+                        break;
+                    case "Z":
+                        transform.position = new Vector3(transform.position.x, transform.position.y, hand.transform.position.z);
+                        break;
+                    case "z":
+                        transform.position = new Vector3(transform.position.x, transform.position.y, hand.transform.position.z);
+                        break;
+                    default:
+                        transform.position = hand.transform.position;
+                        break;
+                }
+            }
+
+            
+            
+        }
+        else
+        {
+            if(this.gameObject.tag == "Ingredient")
+            {
+                transform.GetComponent<Rigidbody>().detectCollisions = true;
+            }
+            
         }
     }
 
