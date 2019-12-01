@@ -48,19 +48,16 @@ public class MyMobile : MonoBehaviour
                 isTaken = false;
             }
         }
-        
 
-        
+
+        GameObject handSon = hand.transform.GetChild(0).gameObject;
         if (isTaken)
         {
-            
-
-            GameObject handSon = hand.transform.GetChild(0).gameObject;
-
             if(this.gameObject.tag == "Ingredient") //INGREDIENTES
             {
+                SetAsParent(handSon);
                 transform.GetComponent<Rigidbody>().detectCollisions = false;
-                transform.position = handSon.transform.position;
+                
             }
             else //CAJONES Y OTRAS COSAS
             {
@@ -97,10 +94,29 @@ public class MyMobile : MonoBehaviour
         {
             if(this.gameObject.tag == "Ingredient")
             {
+                RemoveAsParent(handSon);
                 transform.GetComponent<Rigidbody>().detectCollisions = true;
             }
             
         }
+    }
+
+    private void SetAsParent(GameObject obj)
+    {
+        if (transform.GetComponent<Rigidbody>().detectCollisions)
+        {
+            transform.SetParent(obj.transform);
+        }
+        
+    }
+
+    private void RemoveAsParent(GameObject obj)
+    {
+        if (!transform.GetComponent<Rigidbody>().detectCollisions)
+        {
+            transform.parent = null;
+        }
+
     }
 
     public Vector3 getInitialPos()

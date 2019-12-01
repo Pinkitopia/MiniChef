@@ -9,6 +9,7 @@ TagManager:
   - CameraTrigger
   - CutPosition
   - Ingredient
+  - Ingredient2
   layers:
   - Default
   - TransparentFX

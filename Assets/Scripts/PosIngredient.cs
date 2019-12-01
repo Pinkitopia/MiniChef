@@ -8,7 +8,7 @@ public class PosIngredient : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Ingredient")
+        if (col.gameObject.tag == "Ingredient2")
         {
             col.gameObject.transform.parent.position = transform.position;
             col.gameObject.transform.parent.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
@@ -23,7 +23,7 @@ public class PosIngredient : MonoBehaviour
 
     void Update()
     {
-
+        
     }
 
 

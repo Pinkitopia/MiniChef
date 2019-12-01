@@ -284,7 +284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400104, guid: d1801a26b33ede3488aaa0f8fc418f56, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 42.36
       objectReference: {fileID: 0}
     - target: {fileID: 400104, guid: d1801a26b33ede3488aaa0f8fc418f56, type: 3}
       propertyPath: m_LocalPosition.y
@@ -292,7 +292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400104, guid: d1801a26b33ede3488aaa0f8fc418f56, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -11.05
       objectReference: {fileID: 0}
     - target: {fileID: 400104, guid: d1801a26b33ede3488aaa0f8fc418f56, type: 3}
       propertyPath: m_LocalRotation.x
@@ -8898,7 +8898,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2.8600001}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1629977944}
   m_Father: {fileID: 1704877525}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9114,7 +9115,7 @@ GameObject:
   - component: {fileID: 595765849}
   m_Layer: 0
   m_Name: brocoliStates
-  m_TagString: Untagged
+  m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9127,7 +9128,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 595765843}
   m_LocalRotation: {x: -0, y: -0, z: 0.0008009596, w: 0.9999997}
-  m_LocalPosition: {x: -74.95, y: 3.09, z: 65.66}
+  m_LocalPosition: {x: -6.4, y: 3.09, z: -78.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1693425809}
@@ -9638,7 +9639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ac65fe40b8f05d24aa4cbcbf7098dc8e, type: 3}
       propertyPath: m_TagString
-      value: Ingredient
+      value: Ingredient2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ac65fe40b8f05d24aa4cbcbf7098dc8e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24246,6 +24247,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: -90.230995, y: 17.441986, z: -17.438995}
+--- !u!1 &1629977943
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1629977944}
+  m_Layer: 0
+  m_Name: pivotHand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1629977944
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629977943}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 3.1399999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 552041106}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1631165030
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24724,7 +24755,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704877522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -67.5, y: 0, z: 16.3}
+  m_LocalPosition: {x: -16.47, y: 0, z: 3.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 173616014}
