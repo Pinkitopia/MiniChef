@@ -59,7 +59,11 @@ public class MyMobile : MonoBehaviour
                 transform.GetComponent<Rigidbody>().detectCollisions = false;
                 
             }
-            else //CAJONES Y OTRAS COSAS
+            else if (this.gameObject.tag == "Drawer") //Cajones
+            {
+                this.GetComponent<Drawers>().open(handSon.transform.position);
+            }
+            else //OTRAS COSAS
             {
                 switch (blockAxis) //BLOQUEA SOBRE EJES (PARA CAJONES POR EJEMPLO)
                 {
@@ -96,8 +100,11 @@ public class MyMobile : MonoBehaviour
             {
                 RemoveAsParent(handSon);
                 transform.GetComponent<Rigidbody>().detectCollisions = true;
+            }else if (this.gameObject.tag == "Drawer") //Cajones
+            {
+                this.GetComponent<Drawers>().release();
             }
-            
+
         }
     }
 
