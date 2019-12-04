@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//hola
+
 public class PlayerController : MonoBehaviour
 {
     public float delay = 0.1f;
