@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//ESTO ES LA CLASE CON LA QUE SE MANEJA AL JUGADOR
 public class PlayerController : MonoBehaviour
 {
     public float delay = 0.1f;
