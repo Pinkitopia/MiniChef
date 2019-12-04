@@ -10,6 +10,7 @@ TagManager:
   - CutPosition
   - Ingredient
   - Ingredient2
+  - Drawer
   layers:
   - Default
   - TransparentFX
