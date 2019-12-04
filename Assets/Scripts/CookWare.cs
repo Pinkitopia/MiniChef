@@ -150,6 +150,7 @@ public class CookWare : MonoBehaviour
 
     public void EnviarIngrediente()
     {
+
         ingredientesABorrar.Add(ingredientes[0]);
     }
 
