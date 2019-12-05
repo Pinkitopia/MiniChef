@@ -9,6 +9,7 @@ public class Drawers : MonoBehaviour
     public bool blockY = true;
     public bool blockZ = true;
     public float timeOpened;
+    public float offset;
     private Vector3 posMin;
     private bool hasOpened = false;
     private float cooldown = 0;
@@ -24,7 +25,7 @@ public class Drawers : MonoBehaviour
         {
             if(cooldown >= timeOpened)
             {
-                this.transform.position = Vector3.Lerp(this.transform.position, posMin, Time.deltaTime*2.0f);
+                
                 cooldown = 0;
                 hasOpened = false;
             }
@@ -33,13 +34,17 @@ public class Drawers : MonoBehaviour
                 cooldown += Time.deltaTime;
             }
         }
+        else if(cooldown == 0 && transform.position != posMin)
+        {
+            this.transform.position = Vector3.Lerp(this.transform.position, posMin, Time.deltaTime * 2.0f);
+        }
     }
 
     public void open(Vector3 newPos)
     {
-        transform.position = new Vector3((blockX == true ? this.transform.position.x : (posMax.x < posMin.x ? Mathf.Min(Mathf.Max(newPos.x, posMax.x),posMin.x) : Mathf.Max(Mathf.Min(newPos.x, posMax.x), posMin.x))),
-            (blockY == true ? this.transform.position.y : (posMax.y < posMin.y ? Mathf.Min(Mathf.Max(newPos.y, posMax.y), posMin.y) : Mathf.Max(Mathf.Min(newPos.y, posMax.y), posMin.y))),
-            (blockZ == true ? this.transform.position.z : (posMax.z < posMin.z ? Mathf.Min(Mathf.Max(newPos.z, posMax.z), posMin.z) : Mathf.Max(Mathf.Min(newPos.z, posMax.z), posMin.z)))
+        transform.position = new Vector3((blockX == true ? this.transform.position.x : (posMax.x < posMin.x ? Mathf.Min(Mathf.Max(newPos.x-offset, posMax.x),posMin.x) : Mathf.Max(Mathf.Min(newPos.x+offset, posMax.x), posMin.x))),
+            (blockY == true ? this.transform.position.y : (posMax.y < posMin.y ? Mathf.Min(Mathf.Max(newPos.y - offset, posMax.y), posMin.y) : Mathf.Max(Mathf.Min(newPos.y + offset, posMax.y), posMin.y))),
+            (blockZ == true ? this.transform.position.z : (posMax.z < posMin.z ? Mathf.Min(Mathf.Max(newPos.z - offset, posMax.z), posMin.z) : Mathf.Max(Mathf.Min(newPos.z + offset, posMax.z), posMin.z)))
             );
         cooldown = 0.1f;
     }
