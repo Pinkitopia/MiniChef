@@ -39,7 +39,7 @@ public class MyMobile : MonoBehaviour
         }
         else
         {
-            if (dis < 5.0f && handTool.GetComponent<HandTool>().isActive)
+            if (dis < 3.5f && handTool.GetComponent<HandTool>().isActive)
             {
                 isTaken = true;
             }
