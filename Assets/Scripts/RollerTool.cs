@@ -68,6 +68,7 @@ public class RollerTool : Tool
 
         if (Mathf.Abs(horizontal) > 0.1f){
             transform.Translate(0, 0, Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed);
+            
         }
 
         //MOVER CAMARA CON EL PLAYER

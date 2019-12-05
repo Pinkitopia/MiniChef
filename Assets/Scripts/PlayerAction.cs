@@ -6,7 +6,9 @@ public class PlayerAction : MonoBehaviour
 {
     public Tool tool = null;
     private bool toolTaken = false;
+    private bool rollingPinTaken = false;
 
+    private Animator anim;
 
     private GameObject[] availableTools;
 
@@ -14,6 +16,8 @@ public class PlayerAction : MonoBehaviour
     void Start()
     {
         availableTools = GameObject.FindGameObjectsWithTag("Tool");
+        anim = GetComponentInChildren<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -48,6 +52,19 @@ public class PlayerAction : MonoBehaviour
                 }
             }
         }
+
+        //CONTROL DE ANIMACIONES
+        if(toolTaken && tool.name == "RollingPin")
+        {
+            rollingPinTaken = true;
+        }
+        else
+        {
+            rollingPinTaken = false;
+        }
+        anim.SetBool("toolTaken", toolTaken);
+        anim.SetBool("rollingPinTaken", rollingPinTaken);
+
 
 
         //ACTIVAR HERRAMIENTA (SU ACCION PROPIA) SI LA TENEMOS COGIDA

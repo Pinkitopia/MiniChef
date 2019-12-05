@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private bool enabled = true;
+    public bool animateInRoller = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,13 +36,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        vertical = Mathf.Abs(Input.GetAxis("Vertical"));
+        horizontal = Mathf.Abs(Input.GetAxis("Horizontal"));
         //Si no se está tocando la pantalla, lanzamos el move Player
         //Comprueba los input de teclado y ejecuta el movimiento.
         if (!touchDetected && enabled)
             movePlayer();
 
-        if (enabled) animatePlayer();
+        //Si se esta moviendo o esta encima del rodillo
+        if (enabled || animateInRoller) animatePlayer();
 
+        if (animateInRoller) moveInRollingPin();
     }
 
     void animatePlayer () {
@@ -60,9 +66,16 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("VerticalVelocity", speed);
     }
 
+    void moveInRollingPin()
+    {
+
+        transform.GetChild(0).rotation = Quaternion.Slerp(transform.GetChild(0).rotation, Quaternion.Euler(0, -90, 0), Time.deltaTime * 100);
+
+
+    }
+
     void movePlayer () { //Mover al personaje CON EL TECLADO O UN CONTROLADOR
-        vertical = Mathf.Abs(Input.GetAxis("Vertical"));
-        horizontal = Mathf.Abs(Input.GetAxis("Horizontal"));
+        
 
         if (Mathf.Abs(vertical) > delay || Mathf.Abs(horizontal) > delay){
             transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
@@ -154,9 +167,11 @@ public class PlayerController : MonoBehaviour
 
     public void enable () {
         enabled = true;
+        animateInRoller = false;
     }
 
     public void disable () {
         enabled = false;
+        animateInRoller = true;
     }
 }
