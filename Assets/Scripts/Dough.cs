@@ -24,7 +24,7 @@ public class Dough : Ingredient
             this.roll();
             Debug.Log("Roleado!");
         }
-        if (this.state == FoodState.doughState.flattened){
+        if (this.state == FoodState.doughState.flattened && tomato){
             if (col.gameObject.name == "Onion"){
                 Ingredient onion = col.gameObject.GetComponent <Ingredient> ();
                 if (onion.state == FoodState.onionState.dicedState.raw){

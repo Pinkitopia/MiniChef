@@ -371,8 +371,21 @@ ModelImporter:
     7400036: metarig|Empty.001Action
     7400038: metarig|Empty.002Action
     7400040: metarig|metarigAction
-    7400042: metarig|metarigAction.001
+    7400042: idle
     7400044: metarig|personajeAction
+    7400046: metarig|CubeAction.001
+    7400048: metarig|CubeAction.003
+    7400050: metarig|CubeAction.004
+    7400052: metarig|CubeAction.005
+    7400054: metarig|CubeAction.006
+    7400056: metarig|CubeAction.007
+    7400058: metarig|CubeAction.008
+    7400060: metarig|CubeAction.009
+    7400062: metarig|CubeAction.010
+    7400064: metarig|CubeAction.011
+    7400066: metarig|CubeAction.012
+    7400068: metarig|CubeAction.013
+    7400070: metarig|CubeAction.014
     9500000: //RootNode
     13700000: Caja.001
     13700002: GIGANTE
@@ -405,7 +418,35 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: metarig|metarigAction.001
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
