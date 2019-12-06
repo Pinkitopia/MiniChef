@@ -6,7 +6,7 @@ public class Ingredient : Object
 {
     int id = -1;
 
-    protected ID state;
+    public ID state;
     /*
 
     ID state;

@@ -73,6 +73,18 @@ public static class FoodState
         public static readonly ID sliced = pepperoni[1];
         public static readonly ID cooked = pepperoni[2];
     }
+
+    public static readonly ID bacon = 7;
+    public static class baconState
+    {
+        public static readonly ID raw = bacon[0];
+    }
+
+    public static readonly ID pineapple = 8;
+    public static class pineappleState
+    {
+        public static readonly ID raw = pineapple[0];
+    }
 }
 
 public struct ID
