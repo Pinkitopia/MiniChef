@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             running = true;
@@ -48,8 +49,12 @@ public class PlayerController : MonoBehaviour
             running = false;
         }
 
-        vertical = Mathf.Abs(Input.GetAxis("Vertical"));
-        horizontal = Mathf.Abs(Input.GetAxis("Horizontal"));
+        if (!touchDetected)
+        {
+            vertical = Mathf.Abs(Input.GetAxis("Vertical"));
+            horizontal = Mathf.Abs(Input.GetAxis("Horizontal"));
+        }
+        
         //Si no se está tocando la pantalla, lanzamos el move Player
         //Comprueba los input de teclado y ejecuta el movimiento.
         if (!touchDetected && enabled)
@@ -62,13 +67,15 @@ public class PlayerController : MonoBehaviour
     }
 
     void animatePlayer () {
+
+        Debug.Log(vertical);
         //VELOCIDAD PARA ANIMACIONES ES UNA ÑAPA ENORME PERO FUNCIONA BIEN Y QUEDA GUAY Y NO SE HACERLO DE OTRA FORMA :D
         if (vertical != 0 || horizontal != 0)
             speed += 0.1f;
         else
             speed -= 0.1f;
 
-        if (running)
+        if (running || touchDetected)
         {
             if (speed > 2.5f)
                 speed = 2.5f;
@@ -130,7 +137,7 @@ public class PlayerController : MonoBehaviour
             else
             {
 
-                cam.transform.position = Vector3.Slerp(cam.transform.position, new Vector3(transform.GetChild(0).position.x, camTriggers[0].GetComponent<CameraTrigger>().getPositionY(), transform.GetChild(0).position.z - offsetCamera), Time.deltaTime * camTriggers[0].GetComponent<CameraTrigger>().speed);
+                cam.transform.position = Vector3.Slerp(cam.transform.position, new Vector3(transform.GetChild(0).position.x, transform.GetChild(0).position.y + offsetCamera, transform.GetChild(0).position.z - offsetCamera), Time.deltaTime * camTriggers[0].GetComponent<CameraTrigger>().speed);
             }
 
             cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, Quaternion.Euler(camTriggers[0].GetComponent<CameraTrigger>().getRotationX(), camTriggers[0].GetComponent<CameraTrigger>().getRotationY(), 0), Time.deltaTime * camTriggers[0].GetComponent<CameraTrigger>().speed);
@@ -182,8 +189,8 @@ public class PlayerController : MonoBehaviour
         horizontal = Mathf.Abs(direction.x);
 
         if (Mathf.Abs(vertical) > delay || Mathf.Abs(horizontal) > delay){
-            transform.Translate(0, 0, direction.y * Time.deltaTime * movementSpeed);
-            transform.Translate(direction.x * Time.deltaTime * movementSpeed, 0, 0);
+            transform.Translate(0, 0, direction.y * Time.deltaTime * runningSpeed);
+            transform.Translate(direction.x * Time.deltaTime * runningSpeed, 0, 0);
 
             //MOVER CAMARA CON EL PLAYER
             cam.transform.position = new Vector3(transform.GetChild(0).position.x, cam.transform.position.y, transform.GetChild(0).position.z - offsetCamera);
