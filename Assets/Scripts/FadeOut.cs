@@ -7,16 +7,16 @@ using UnityEngine.UI;
 public class FadeOut : MonoBehaviour
 {
 
-    Image rend;
+    public RawImage rend;
   
     // Start is called before the first frame update
     void Start()
     {
-        rend = this.GetComponent<Image>();
+        rend = this.GetComponent<RawImage>();
 
-        Color c = rend.material.color;
+        Color c = rend.color;
         c.a = 1f;
-        rend.material.color = c;
+        rend.color = c;
 
         StartCoroutine(cmon());
     }
@@ -25,9 +25,9 @@ public class FadeOut : MonoBehaviour
     {
         for (float f = 1f; f >= -0.05f; f -= 0.05f)
         {
-            Color c = rend.material.color;
+            Color c = rend.color;
             c.a = f;
-            rend.material.color = c;
+            rend.color = c;
             yield return new WaitForSeconds(0.05f);
         }
     }

@@ -68,10 +68,12 @@ public class CameraTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        PlayerController playerControl = GameObject.FindGameObjectWithTag("PlayerGameObject").GetComponent<PlayerController>();
+
         moveX = false;
         positionCameraX = 0.0f;
-        positionCameraY = 10.0f;
-        positionCameraZ = 0.0f;
+        positionCameraY = playerControl.transform.position.y + playerControl.offsetCamera;
+        positionCameraZ = playerControl.transform.position.z + playerControl.offsetCamera;
         rotationX = 40.0f;
         rotationY = 0.0f;
         speed = Mathf.Lerp(speed, speedAux, Time.deltaTime * 5.0f);
