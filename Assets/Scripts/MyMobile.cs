@@ -56,8 +56,10 @@ public class MyMobile : MonoBehaviour
             if(this.gameObject.tag == "Ingredient") //INGREDIENTES
             {
                 SetAsParent(handSon);
+                transform.GetComponent<Rigidbody>().useGravity = false;
+                transform.GetComponent<Rigidbody>().isKinematic = true;
                 transform.GetComponent<Rigidbody>().detectCollisions = false;
-                
+
             }
             else if (this.gameObject.tag == "Drawer") //Cajones
             {
@@ -99,8 +101,15 @@ public class MyMobile : MonoBehaviour
             if(this.gameObject.tag == "Ingredient")
             {
                 RemoveAsParent(handSon);
+                transform.GetComponent<Rigidbody>().useGravity = true;
+                if (!GameObject.FindGameObjectWithTag("CutPosition").GetComponent<PosIngredient>().isReady)
+                {
+                    transform.GetComponent<Rigidbody>().isKinematic = false;
+                }
+                
                 transform.GetComponent<Rigidbody>().detectCollisions = true;
-            }else if (this.gameObject.tag == "Drawer") //Cajones
+            }
+            else if (this.gameObject.tag == "Drawer") //Cajones
             {
                 this.GetComponent<Drawers>().release();
             }
@@ -130,6 +139,12 @@ public class MyMobile : MonoBehaviour
     {
         return initialPos;
     }
+
+    /*IEnumerator waitCollisions(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        transform.GetComponent<Rigidbody>().detectCollisions = true;
+    }*/
 
     /*private void OnTriggerEnter(Collider other)
     {

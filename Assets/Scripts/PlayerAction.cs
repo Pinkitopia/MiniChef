@@ -7,6 +7,7 @@ public class PlayerAction : MonoBehaviour
     public Tool tool = null;
     private bool toolTaken = false;
     private bool rollingPinTaken = false;
+    public bool pushingIngredient = false;
 
     private Animator anim;
 
@@ -64,7 +65,7 @@ public class PlayerAction : MonoBehaviour
         }
         anim.SetBool("toolTaken", toolTaken);
         anim.SetBool("rollingPinTaken", rollingPinTaken);
-
+        anim.SetBool("pushingIngredient", pushingIngredient);
 
 
         //ACTIVAR HERRAMIENTA (SU ACCION PROPIA) SI LA TENEMOS COGIDA
@@ -77,6 +78,32 @@ public class PlayerAction : MonoBehaviour
         }
 
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.gameObject.tag == "Ingredient")
+        {
+            pushingIngredient = true;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Ingredient")
+        {
+            pushingIngredient = true;
+        }
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Ingredient")
+        {
+            pushingIngredient = false;
+        }
     }
 }
 

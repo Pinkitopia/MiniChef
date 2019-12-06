@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float delay = 0.1f;
     public float movementSpeed = 10.0f;
+    public float runningSpeed = 15.0f;
     public float rotationSpeed = 10.0f;
     public float offsetCamera = 10.0f;
 
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
     float speed = 0.0f;
 
     public bool touchDetected = false;
+    public bool running = false;
 
     Animator anim;
 
@@ -36,6 +38,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            running = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            running = false;
+        }
 
         vertical = Mathf.Abs(Input.GetAxis("Vertical"));
         horizontal = Mathf.Abs(Input.GetAxis("Horizontal"));
@@ -57,10 +68,21 @@ public class PlayerController : MonoBehaviour
         else
             speed -= 0.1f;
 
-        if (speed > 1.5f)
-            speed = 1.5f;
-        if (speed < 0)
-            speed = 0;
+        if (running)
+        {
+            if (speed > 2.5f)
+                speed = 2.5f;
+            if (speed < 0)
+                speed = 0;
+        }
+        else
+        {
+            if (speed > 1.5f)
+                speed = 1.5f;
+            if (speed < 0)
+                speed = 0;
+        }
+        
        
     
         anim.SetFloat("VerticalVelocity", speed);
@@ -78,8 +100,18 @@ public class PlayerController : MonoBehaviour
         
 
         if (Mathf.Abs(vertical) > delay || Mathf.Abs(horizontal) > delay){
-            transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
-            transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed, 0, 0);
+
+            if (running)
+            {
+                transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * runningSpeed);
+                transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * runningSpeed, 0, 0);
+            }
+            else
+            {
+                transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
+                transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed, 0, 0);
+            }
+            
 
             var angle = 0f;
 
@@ -98,7 +130,7 @@ public class PlayerController : MonoBehaviour
             else
             {
 
-                cam.transform.position = Vector3.Slerp(cam.transform.position, new Vector3(transform.GetChild(0).position.x, camTriggers[0].GetComponent<CameraTrigger>().getPositionY(), transform.GetChild(0).position.z - offsetCamera), Time.deltaTime * camTriggers[0].GetComponent<CameraTrigger>().speed);
+                cam.transform.position = Vector3.Slerp(cam.transform.position, new Vector3(transform.GetChild(0).position.x, transform.GetChild(0).position.y + offsetCamera, transform.GetChild(0).position.z - offsetCamera), Time.deltaTime * camTriggers[0].GetComponent<CameraTrigger>().speed);
             }
 
             cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, Quaternion.Euler(camTriggers[0].GetComponent<CameraTrigger>().getRotationX(), camTriggers[0].GetComponent<CameraTrigger>().getRotationY(), 0), Time.deltaTime * camTriggers[0].GetComponent<CameraTrigger>().speed);
@@ -112,7 +144,7 @@ public class PlayerController : MonoBehaviour
             else
             {
 
-                cam.transform.position = Vector3.Slerp(cam.transform.position, new Vector3(transform.GetChild(0).position.x, camTriggers[1].GetComponent<CameraTrigger>().getPositionY(), transform.GetChild(0).position.z - offsetCamera), Time.deltaTime * camTriggers[1].GetComponent<CameraTrigger>().speed);
+                cam.transform.position = Vector3.Slerp(cam.transform.position, new Vector3(transform.GetChild(0).position.x, transform.GetChild(0).position.y + offsetCamera, transform.GetChild(0).position.z - offsetCamera), Time.deltaTime * camTriggers[1].GetComponent<CameraTrigger>().speed);
             }
 
             cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, Quaternion.Euler(camTriggers[1].GetComponent<CameraTrigger>().getRotationX(), camTriggers[1].GetComponent<CameraTrigger>().getRotationY(), 0), Time.deltaTime * camTriggers[1].GetComponent<CameraTrigger>().speed);
@@ -123,7 +155,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            cam.transform.position = Vector3.Slerp(cam.transform.position, new Vector3(transform.GetChild(0).position.x, camTriggers[1].GetComponent<CameraTrigger>().getPositionY(), transform.GetChild(0).position.z - offsetCamera), Time.deltaTime * camTriggers[1].GetComponent<CameraTrigger>().speed);
+            cam.transform.position = Vector3.Slerp(cam.transform.position, new Vector3(transform.GetChild(0).position.x, transform.GetChild(0).position.y + offsetCamera, transform.GetChild(0).position.z - offsetCamera), Time.deltaTime * camTriggers[1].GetComponent<CameraTrigger>().speed);
             cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, Quaternion.Euler(camTriggers[0].GetComponent<CameraTrigger>().getRotationX(), camTriggers[0].GetComponent<CameraTrigger>().getRotationY(), 0), Time.deltaTime * camTriggers[0].GetComponent<CameraTrigger>().speed);
         }
             
