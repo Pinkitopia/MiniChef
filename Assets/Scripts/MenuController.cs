@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class MenuController : MonoBehaviour
     }
 
     public idioma language = idioma.ESPANOL;
+
+    public Generador.Difficulty dificultad = Generador.Difficulty.MEDIUM;
+
+    public Image imagenFacil, imagenDificil, imagenMedia;
 
     void Start()
     {
@@ -79,5 +84,27 @@ public class MenuController : MonoBehaviour
     public void comenzarPartida () {
         menuDificultad.SetActive(false);
         background.enabled = false;
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
+    }
+
+    public void setDifficultyEasy() {
+        imagenFacil.enabled = true;
+        imagenMedia.enabled = false;
+        imagenDificil.enabled = false;
+        dificultad = Generador.Difficulty.EASY;
+    }
+
+    public void setDifficultyMedium() {
+        imagenFacil.enabled = false;
+        imagenMedia.enabled = true;
+        imagenDificil.enabled = false;
+        dificultad = Generador.Difficulty.MEDIUM;
+    }
+
+    public void setDifficultyHard() {
+        imagenFacil.enabled = false;
+        imagenMedia.enabled = false;
+        imagenDificil.enabled = true;
+        dificultad = Generador.Difficulty.HARD;
     }
 }

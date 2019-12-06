@@ -13,6 +13,7 @@ public class CookWare : MonoBehaviour
     [Header("Ajustes")]
     [Space(5)]
     public GameObject salidaGameObject;
+    public bool isCinta;
     public bool isAutomatic;
     public bool usesAnimation = false;
     public float velocidad = 2;
@@ -90,7 +91,11 @@ public class CookWare : MonoBehaviour
             }
             for (int j = 0; j < ingredientesABorrar.Count; j++)
             {
-                salidaGameObject.GetComponent<CookWare>().AnadirIngrediente(ingredientesABorrar[j].objeto);
+                if(!isCinta){
+                    salidaGameObject.GetComponent<CookWare>().AnadirIngrediente(ingredientesABorrar[j].objeto);
+                }else if(isCinta) {
+                    salidaGameObject.GetComponent<CintaMec>().AnadirComida(ingredientesABorrar[j].objeto);
+                }
                 ingredientes.Remove(ingredientesABorrar[j]);
             }
             ingredientesABorrar.Clear();
