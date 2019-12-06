@@ -12,11 +12,14 @@ public class RollerTool : Tool
 
     private GameObject cam;
 
-    public float offsetCamera = 10.0f;
+    public float minMax = 5.0f;
 
     public float movementSpeed = 10.0f;
 
     private Collider[] colliders;
+
+    private float xMax;
+    private float xMin;
 
     void Start()
     {
@@ -25,6 +28,9 @@ public class RollerTool : Tool
         cam = GameObject.FindGameObjectWithTag("MainCamera");
 
         colliders = GetComponents<Collider>();
+
+        xMax = transform.position.x + minMax;
+        xMin = transform.position.x - minMax;
     }
 
     // Update is called once per frame
@@ -33,6 +39,16 @@ public class RollerTool : Tool
         if (!touchDetected && enabled){
             moveRoller();
         }
+
+        if(transform.position.x > xMax)
+        {
+            transform.position = new Vector3(xMax, transform.position.y, transform.position.z);
+        }
+        if (transform.position.x < xMin)
+        {
+            transform.position = new Vector3(xMin, transform.position.y, transform.position.z);
+        }
+
     }
 
     public override bool Action()
@@ -72,7 +88,7 @@ public class RollerTool : Tool
         }
 
         //MOVER CAMARA CON EL PLAYER
-        cam.transform.position = new Vector3(transform.position.x, 10, transform.position.z - offsetCamera);
+        cam.transform.position = new Vector3(transform.position.x, controller.transform.position.y + controller.offsetCamera, controller.transform.position.z - controller.offsetCamera);
     
     }
 
@@ -84,7 +100,7 @@ public class RollerTool : Tool
         }
 
         //MOVER CAMARA CON EL PLAYER
-        cam.transform.position = new Vector3(transform.position.x, 10, transform.position.z - offsetCamera);
+        cam.transform.position = new Vector3(transform.position.x, controller.transform.position.y + controller.offsetCamera, controller.transform.position.z - controller.offsetCamera);
     
     }
 

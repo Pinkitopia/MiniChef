@@ -25131,7 +25131,7 @@ MonoBehaviour:
   player: {fileID: 0}
   playerNear: 0
   touchDetected: 0
-  offsetCamera: 10
+  minMax: 20
   movementSpeed: 10
 --- !u!54 &1943098083
 Rigidbody:
