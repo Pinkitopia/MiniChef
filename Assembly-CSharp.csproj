@@ -68,6 +68,7 @@
      <Compile Include="Assets\Scripts\CameraTrigger.cs" />
      <Compile Include="Assets\Scripts\Cheese.cs" />
      <Compile Include="Assets\Scripts\CintaMec.cs" />
+     <Compile Include="Assets\Scripts\ComprobadorPedidos.cs" />
      <Compile Include="Assets\Scripts\CookWare.cs" />
      <Compile Include="Assets\Scripts\Dough.cs" />
      <Compile Include="Assets\Scripts\Drawers.cs" />

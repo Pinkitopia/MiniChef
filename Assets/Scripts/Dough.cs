@@ -9,7 +9,7 @@ public class Dough : Ingredient
 
     private int timesRolled = 0;
 
-    private bool tomato = false;
+    public bool tomato = false;
 
     void Start () {
         state = FoodState.doughState.raw;

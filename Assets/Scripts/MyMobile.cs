@@ -104,7 +104,16 @@ public class MyMobile : MonoBehaviour
                 transform.GetComponent<Rigidbody>().useGravity = true;
                 if (!GameObject.FindGameObjectWithTag("CutPosition").GetComponent<PosIngredient>().isReady)
                 {
-                    transform.GetComponent<Rigidbody>().isKinematic = false;
+                    if (transform.parent != null){
+                        if (transform.parent.gameObject.name != "Player"){
+                            GetComponent<Rigidbody>().isKinematic = false;
+                        } else {
+                            GetComponent<Rigidbody>().isKinematic = true;
+                        }
+                    } else {
+                            GetComponent<Rigidbody>().isKinematic = true;
+                    }
+                    
                 }
                 
                 transform.GetComponent<Rigidbody>().detectCollisions = true;

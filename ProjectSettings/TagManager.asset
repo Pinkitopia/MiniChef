@@ -11,6 +11,7 @@ TagManager:
   - Ingredient
   - Ingredient2
   - Drawer
+  - Cookware
   layers:
   - Default
   - TransparentFX

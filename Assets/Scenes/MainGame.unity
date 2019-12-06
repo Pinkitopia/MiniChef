@@ -122,9 +122,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5735483}
   - component: {fileID: 5735482}
+  - component: {fileID: 5735485}
+  - component: {fileID: 5735484}
   m_Layer: 0
   m_Name: Sarten
-  m_TagString: Untagged
+  m_TagString: Cookware
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,7 +146,7 @@ MonoBehaviour:
   CocinaTipo: 2
   salidaGameObject: {fileID: 447531915}
   isCinta: 1
-  isAutomatic: 1
+  isAutomatic: 0
   usesAnimation: 1
   velocidad: 2
   variabilidadVelocidad: 0.2
@@ -201,6 +203,33 @@ Transform:
   m_Father: {fileID: 1069671654}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5735484
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5735481}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &5735485
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5735481}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 9
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &6628537
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -599,7 +628,7 @@ Transform:
   - {fileID: 1666864935}
   - {fileID: 1647663668}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &94906764
 GameObject:
@@ -7822,7 +7851,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 595765843}
   m_LocalRotation: {x: -0, y: -0, z: 0.0008009596, w: 0.9999997}
-  m_LocalPosition: {x: 5.4, y: 1.5, z: -71.1}
+  m_LocalPosition: {x: -100.3, y: 2.7, z: 66.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1693425809}
@@ -8196,7 +8225,7 @@ Transform:
   - {fileID: 534669905}
   - {fileID: 1910309099}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &705899973
 PrefabInstance:
@@ -8695,7 +8724,7 @@ Transform:
   - {fileID: 249547182}
   - {fileID: 909102425}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &898301077 stripped
 GameObject:
@@ -14163,9 +14192,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1047407091}
+  - component: {fileID: 1047407093}
+  - component: {fileID: 1047407092}
   m_Layer: 0
   m_Name: Olla
-  m_TagString: Untagged
+  m_TagString: Cookware
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14189,6 +14220,57 @@ Transform:
   m_Father: {fileID: 1069671654}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1047407092
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047407090}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 8.2
+  m_Height: 25
+  m_Direction: 1
+  m_Center: {x: 0, y: -3.97, z: 0}
+--- !u!114 &1047407093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047407090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e701c1b2dbbb734f8c7b1ab71ec81a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CocinaTipo: 1
+  salidaGameObject: {fileID: 5735481}
+  isCinta: 0
+  isAutomatic: 0
+  usesAnimation: 0
+  velocidad: 2
+  variabilidadVelocidad: 0.2
+  alturaMax: 5
+  despMax: 0.05
+  multiplicadorAltura:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  maxIngredientes: 3
+  radioCacharro: 4
+  tCocina: 15
+  isDebug: 0
+  isSliced1: 0
+  ingredienteDebug1: {fileID: 0}
+  isSliced2: 0
+  ingredienteDebug2: {fileID: 0}
+  isSliced3: 0
+  ingredienteDebug3: {fileID: 0}
 --- !u!1 &1066965140
 GameObject:
   m_ObjectHideFlags: 0
@@ -17910,7 +17992,7 @@ Transform:
   - {fileID: 2078194380806827128}
   - {fileID: 1758334621}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1416448534
 GameObject:
@@ -24369,6 +24451,7 @@ Transform:
   - {fileID: 576009332}
   - {fileID: 1069671654}
   - {fileID: 447531916}
+  - {fileID: 2313453170023674235}
   m_Father: {fileID: 1838752872}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24986,7 +25069,7 @@ Transform:
   - {fileID: 1707604650}
   - {fileID: 1919784455}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1842813078 stripped
 GameObject:
@@ -25753,7 +25836,7 @@ Transform:
   m_Children:
   - {fileID: 1448006557}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2010061894
 PrefabInstance:
@@ -32367,15 +32450,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2313453170023771483}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: -10.5, y: -95.6, z: 157.9}
   m_LocalScale: {x: 4.656795, y: 4.656795, z: 4.656795}
   m_Children:
   - {fileID: 2313453170023674233}
   - {fileID: 2313453170023674153}
   - {fileID: 2313453170023674113}
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 1707604650}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &2313453170023674329
 Transform:
