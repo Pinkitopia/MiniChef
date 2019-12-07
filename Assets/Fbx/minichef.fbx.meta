@@ -203,8 +203,8 @@ ModelImporter:
     - serializedVersion: 16
       name: solo_walk
       takeName: metarig|metarigAction
-      firstFrame: 24
-      lastFrame: 55
+      firstFrame: 0
+      lastFrame: 24
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -11,6 +11,8 @@ public class Dough : Ingredient
 
     public bool tomato = false;
 
+    private bool colisions = true;
+
     void Start () {
         state = FoodState.doughState.raw;
         for (int i = 1; i < 7; i++){
@@ -89,5 +91,26 @@ public class Dough : Ingredient
         }
         else
             return false;
+    }
+
+    void Update()
+    {
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAction>().GetRollingPin())
+        {
+            colisions = false;
+        }
+        else
+        {
+            colisions = true;
+        }
+
+        if (!colisions)
+        {
+            GetComponentInChildren<MeshCollider>().enabled = false;
+        }
+        else
+        {
+            GetComponentInChildren<MeshCollider>().enabled = true;
+        }
     }
 }
