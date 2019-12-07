@@ -10152,6 +10152,7 @@ GameObject:
   - component: {fileID: 494192163}
   - component: {fileID: 494192165}
   - component: {fileID: 494192164}
+  - component: {fileID: 494192166}
   m_Layer: 0
   m_Name: Sphere (1)
   m_TagString: Untagged
@@ -10217,6 +10218,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 494192162}
+  m_Mesh: {fileID: 4300000, guid: 0a523cec618ea2d40832f3ae3067d7fc, type: 3}
+--- !u!64 &494192166
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494192162}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 0a523cec618ea2d40832f3ae3067d7fc, type: 3}
 --- !u!1001 &496684231
 PrefabInstance:
@@ -12137,7 +12152,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 745351410}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.34, y: -0.69, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children:
   - {fileID: 1213322795}
@@ -18331,6 +18346,7 @@ GameObject:
   - component: {fileID: 1066965141}
   - component: {fileID: 1066965143}
   - component: {fileID: 1066965142}
+  - component: {fileID: 1066965144}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -18396,6 +18412,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066965140}
+  m_Mesh: {fileID: 4300000, guid: ec42f3e1647c1e5448ccdb7740bd2e8f, type: 3}
+--- !u!64 &1066965144
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066965140}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: ec42f3e1647c1e5448ccdb7740bd2e8f, type: 3}
 --- !u!1 &1069156247
 GameObject:
@@ -19400,6 +19430,7 @@ GameObject:
   - component: {fileID: 1183074173}
   - component: {fileID: 1183074175}
   - component: {fileID: 1183074174}
+  - component: {fileID: 1183074176}
   m_Layer: 0
   m_Name: Sphere (2)
   m_TagString: Untagged
@@ -19466,6 +19497,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183074172}
   m_Mesh: {fileID: 4300000, guid: 0a523cec618ea2d40832f3ae3067d7fc, type: 3}
+--- !u!64 &1183074176
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183074172}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 0a523cec618ea2d40832f3ae3067d7fc, type: 3}
 --- !u!1 &1212190769
 GameObject:
   m_ObjectHideFlags: 0
@@ -19479,7 +19524,6 @@ GameObject:
   - component: {fileID: 1212190773}
   - component: {fileID: 1212190774}
   - component: {fileID: 1212190770}
-  - component: {fileID: 1212190775}
   m_Layer: 0
   m_Name: MasaPizza
   m_TagString: Untagged
@@ -19508,8 +19552,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1212190769}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.26, y: 1.99, z: 15.83}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -8.27, y: 1.99, z: 4.07}
+  m_LocalScale: {x: 3.1730099, y: 2.942274, z: 2.942274}
   m_Children:
   - {fileID: 1066965141}
   - {fileID: 494192163}
@@ -19583,24 +19627,11 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &1212190775
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1212190769}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 8.047222, y: 4.054225, z: 9.847853}
-  m_Center: {x: 0.21765518, y: 1.3092436, z: -0.09563351}
 --- !u!1 &1213322794
 GameObject:
   m_ObjectHideFlags: 0
@@ -30125,6 +30156,7 @@ GameObject:
   - component: {fileID: 1758931216}
   - component: {fileID: 1758931218}
   - component: {fileID: 1758931217}
+  - component: {fileID: 1758931219}
   m_Layer: 0
   m_Name: Sphere (3)
   m_TagString: Untagged
@@ -30190,6 +30222,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758931215}
+  m_Mesh: {fileID: 4300000, guid: a197dff7982650547b09606bd2c958ac, type: 3}
+--- !u!64 &1758931219
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758931215}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: a197dff7982650547b09606bd2c958ac, type: 3}
 --- !u!1 &1765473764
 GameObject:
@@ -31520,8 +31566,8 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
