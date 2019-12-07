@@ -13,7 +13,7 @@ public class Dough : Ingredient
 
     void Start () {
         state = FoodState.doughState.raw;
-        for (int i = 1; i < 4; i++){
+        for (int i = 1; i < 7; i++){
             gameObject.transform.GetChild(i).gameObject.SetActive(false);
         }
     }
@@ -35,6 +35,7 @@ public class Dough : Ingredient
                 if (cheese.state == FoodState.cheeseState.ball){
                     cheese.state = FoodState.cheeseState.spread;
                     toppings.Add(cheese);
+                    gameObject.transform.GetChild(5).gameObject.SetActive(true);
                 }
             } else if (col.gameObject.name == "Bacon"){
                 Ingredient bacon = col.gameObject.GetComponent <Ingredient> ();
@@ -46,12 +47,19 @@ public class Dough : Ingredient
                 if (pineapple.state == FoodState.pineappleState.raw){
                     toppings.Add(pineapple);
                 }
+            } else if (col.gameObject.name == "Pepperoni"){
+                Ingredient pepe = col.gameObject.GetComponent <Ingredient> ();
+                if (pepe.state == FoodState.pepperoniState.sliced){
+                    toppings.Add(pepe);
+                    gameObject.transform.GetChild(6).gameObject.SetActive(true);
+                }
             }
         }
     }
 
     public void addTomato () {
         tomato = true;
+        gameObject.transform.GetChild(4).gameObject.SetActive(true);
     }
 
     public override bool roll()

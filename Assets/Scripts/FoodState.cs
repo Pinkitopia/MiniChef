@@ -85,6 +85,16 @@ public static class FoodState
     {
         public static readonly ID raw = pineapple[0];
     }
+
+    public static readonly ID noodles = 9;
+
+    public static class noodlesState
+    {
+        public static readonly ID raw = noodles[0];
+        public static readonly ID ball = noodles[1];     //Ball, for movement ?¿
+        public static readonly ID boiled = noodles[2];
+        public static readonly ID cooked = noodles[3];
+    }
 }
 
 public struct ID

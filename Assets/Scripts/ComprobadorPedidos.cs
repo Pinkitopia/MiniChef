@@ -28,10 +28,9 @@ public class ComprobadorPedidos : MonoBehaviour
             //Tenemos una pizza
             List <Ingredient> toppings = recipe.GetComponent<Dough>().toppings;
             if (toppings.Count == 4 && recipe.GetComponent<Dough>().tomato){
-                ID [] correctStates = new ID [3];
-                correctStates[0] = FoodState.onionState.dicedState.raw;
+                ID [] correctStates = new ID [2];
                 correctStates[1] = FoodState.cheeseState.spread;
-                correctStates[2] = FoodState.pepperoniState.sliced;
+                correctStates[0] = FoodState.pepperoniState.sliced;
                 for (int i = 0; i < 3; i++){
                     Ingredient actual = toppings[0];
                     int j = 0;
@@ -68,11 +67,10 @@ public class ComprobadorPedidos : MonoBehaviour
             }
         } else if (recipe.name == "Bowl"){
             //Tenemos unos noodles
-            /*
+        
             List <Ingredient> ingredients = recipe.GetComponent<Bowl>().ingredients;
             if ((ingredients.Count == 4 && generaPedidos.difficulty == Generador.Difficulty.MEDIUM) || (ingredients.Count == 4 && generaPedidos.difficulty == Generador.Difficulty.EASY) || (generaPedidos.difficulty == Generador.Difficulty.HARD && ingredients.Count == 4 && recipe.GetComponent<Bowl>().salt && recipe.GetComponent<Bowl>().soy)){
-                ID [] correctStates = new ID [4];
-                correctStates[0] = FoodState.onionState.dicedState.cooked;
+                ID [] correctStates = new ID [3];
                 correctStates[1] = FoodState.beefState.dicedCooked;
                 correctStates[2] = FoodState.brocoliState.dicedCooked;
                 correctStates[3] = FoodState.noodlesState.cooked;
@@ -95,7 +93,7 @@ public class ComprobadorPedidos : MonoBehaviour
                 }
             } else {
                 correct = false;
-            }*/
+            }
 
         }
 

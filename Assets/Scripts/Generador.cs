@@ -15,7 +15,7 @@ public class Generador : MonoBehaviour
 
     public int maxTasks; //Maximum simultaneous tasks to the Player.
 
-    private Difficulty difficulty;
+    public Difficulty difficulty;
 
     private System.Random r = new System.Random();
 
