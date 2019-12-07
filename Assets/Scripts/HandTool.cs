@@ -6,6 +6,10 @@ public class HandTool : Tool
 {
     public float speed = 10.0f;
     public float distance = 100.0f;
+    public AudioClip sonidoMano_1;
+    public AudioClip sonidoMano_2;
+
+    public AudioSource sonidoMano;
 
 
     private Transform spring;
@@ -36,6 +40,9 @@ public class HandTool : Tool
     {
         isActive = true;
         initialZ = spring.transform.localScale.z;
+
+        sonidoMano.clip = Random.value > 0.5f ? sonidoMano_1: sonidoMano_2;
+        sonidoMano.Play();
 
         return isActive;
     }

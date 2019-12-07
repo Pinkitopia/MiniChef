@@ -34,6 +34,15 @@ public class CookWare : MonoBehaviour
     public bool isSliced3 = false;
     public GameObject ingredienteDebug3;
 
+    public AudioClip horno_encendido;
+    public AudioClip horno_apagado;
+    public AudioSource sonidosHorno;
+    public AudioClip sarten;
+    public AudioSource sonidosSarten;
+    public AudioClip olla;
+    public AudioSource sonidosOlla;
+
+
     private Vector3 salidaPos;
     private List<ObjetoIngrediente> ingredientes;
     private List<ObjetoIngrediente> ingredientesABorrar;
@@ -57,6 +66,10 @@ public class CookWare : MonoBehaviour
 
     void Start()
     {
+        //Sonidos
+        sonidosOlla.clip = olla;
+        sonidosSarten.clip = sarten;
+
         //salidaPos = salidaPosgameObject.transform.position;
         ingredientes = new List<ObjetoIngrediente>(maxIngredientes);
         ingredientesABorrar = new List<ObjetoIngrediente>(maxIngredientes);
@@ -136,10 +149,12 @@ public class CookWare : MonoBehaviour
             }
             else if(CocinaTipo == CocinaType.olla)
             {
+                sonidosOlla.Play();
                 ing.objeto.GetComponent<Ingredient>().boil();
             }
             else if (CocinaTipo == CocinaType.sarten)
             {
+                sonidosSarten.Play();
                 ing.objeto.GetComponent<Ingredient>().cook();
             }
             ing.tCocinado = 0;

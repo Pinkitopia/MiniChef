@@ -8,6 +8,10 @@ public class PlayerAction : MonoBehaviour
     private bool toolTaken = false;
     private bool rollingPinTaken = false;
     public bool pushingIngredient = false;
+    public AudioClip pickUp;
+    public AudioClip drop;
+
+    public AudioSource playerSound;
 
     private Animator anim;
 
@@ -33,6 +37,8 @@ public class PlayerAction : MonoBehaviour
             tool.RemoveAction();
             tool = null;
             toolTaken = false;
+            playerSound.clip = drop;
+            playerSound.Play();
             return;
         }
 
@@ -51,6 +57,8 @@ public class PlayerAction : MonoBehaviour
                         tool = obj.GetComponent<Tool>();
                         tool.MoveAction();
                         toolTaken = true;
+                        playerSound.clip = pickUp;
+                        playerSound.Play();
                     }
                 }
             }
