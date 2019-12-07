@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("PlayerGameObject");
         //backgroundImg = canvas.transform.GetChild(3).gameObject;
         //uiTool = canvas.transform.GetChild(4).gameObject;
-        playerAction = player.GetComponent<PlayerAction>();
+        playerAction = player.GetComponentInChildren<PlayerAction>();
         changeImage = GameObject.FindGameObjectWithTag("UISprite").GetComponent<ChangeImage>();
         
     }
