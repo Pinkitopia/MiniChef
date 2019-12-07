@@ -12,6 +12,16 @@ public class Beef : Ingredient
         state = FoodState.beefState.raw;    
     }
 
+    void OnTriggerEnter(Collider col)
+    {
+
+        if (col.gameObject.name == "KnifeKitchen" && GameObject.FindGameObjectWithTag("CutPosition").GetComponent<PosIngredient>().isReady)
+        {
+            this.cut();
+            Debug.Log("CORTADO");
+        }
+    }
+
     public override bool cook()
     {
         Debug.Log("Cocinao");
@@ -56,10 +66,23 @@ public class Beef : Ingredient
     {
         if (state == FoodState.beefState.raw)
         {
+            transform.GetChild(0).gameObject.SetActive(false);
+            
+            transform.GetChild(1).gameObject.SetActive(true);
             state = FoodState.beefState.dicedRaw;
             return true;
         }
         else
             return false;
+    }
+
+    public void SetParent(GameObject obj)
+    {
+        transform.SetParent(obj.transform);
+    }
+
+    public void RemoveParent(GameObject obj)
+    {
+        transform.parent = null;
     }
 }

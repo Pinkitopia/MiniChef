@@ -5,6 +5,7 @@ using UnityEngine;
 public class PosIngredient : MonoBehaviour
 {
     public bool isReady = false;
+    public bool cortado = false;
 
     void OnTriggerEnter(Collider col)
     {
@@ -23,7 +24,17 @@ public class PosIngredient : MonoBehaviour
 
     void Update()
     {
-        
+        if(isReady && cortado)
+        {
+            StartCoroutine(wait(4.0f));
+        }
+    }
+
+    IEnumerator wait(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        isReady = false;
+        cortado = false;
     }
 
 

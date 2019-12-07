@@ -9,6 +9,12 @@ public class Knife : MonoBehaviour
     private bool playerNear = false;
     private GameObject player;
 
+    public AudioClip sonidoCuchillo1;
+    public AudioClip sonidoCuchillo2;
+    public AudioSource sourceCuchillo;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +29,13 @@ public class Knife : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && playerNear)
         {
             anim.SetTrigger("space");
+            //sourceCuchillo.clip = Random.value > 0.5f ? sonidoCuchillo1 : sonidoCuchillo2;
+            //sourceCuchillo.Play();
+            if (GameObject.FindGameObjectWithTag("CutPosition").GetComponent<PosIngredient>().isReady)
+            {
+                Debug.Log("Hola");
+                GameObject.FindGameObjectWithTag("CutPosition").GetComponent<PosIngredient>().cortado = true;
+            }
         }
     }
 

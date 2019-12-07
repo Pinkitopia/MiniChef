@@ -104,17 +104,25 @@ public class MyMobile : MonoBehaviour
                 transform.GetComponent<Rigidbody>().useGravity = true;
                 if (!GameObject.FindGameObjectWithTag("CutPosition").GetComponent<PosIngredient>().isReady)
                 {
-                    if (transform.parent != null){
-                        if (transform.parent.gameObject.name != "Player"){
+                    if (transform.parent != null)
+                    {
+                        if (transform.parent.gameObject.name != "Player")
+                        {
                             GetComponent<Rigidbody>().isKinematic = false;
-                        } else {
+                        }
+                        else
+                        {
                             GetComponent<Rigidbody>().isKinematic = true;
                         }
-                    } else {
-                            GetComponent<Rigidbody>().isKinematic = true;
+                    }
+                    else
+                    {
+                        transform.GetComponent<Rigidbody>().isKinematic = false;
                     }
                     
+                    
                 }
+                transform.GetComponent<Rigidbody>().useGravity = true;
                 
                 transform.GetComponent<Rigidbody>().detectCollisions = true;
             }
@@ -126,7 +134,7 @@ public class MyMobile : MonoBehaviour
         }
     }
 
-    private void SetAsParent(GameObject obj)
+    public void SetAsParent(GameObject obj)
     {
         if (transform.GetComponent<Rigidbody>().detectCollisions)
         {
@@ -135,7 +143,7 @@ public class MyMobile : MonoBehaviour
         
     }
 
-    private void RemoveAsParent(GameObject obj)
+    public void RemoveAsParent(GameObject obj)
     {
         if (!transform.GetComponent<Rigidbody>().detectCollisions)
         {

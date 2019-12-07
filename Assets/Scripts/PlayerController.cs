@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public float runningSpeed = 15.0f;
     public float rotationSpeed = 10.0f;
     public float offsetCamera = 10.0f;
+    public AudioClip[] pasos;
+    public AudioSource sonidoPasos;
 
     private float vertical = 0.0f;
     private float horizontal = 0.0f;
@@ -64,6 +66,8 @@ public class PlayerController : MonoBehaviour
         if (enabled || animateInRoller) animatePlayer();
 
         if (animateInRoller) moveInRollingPin();
+
+        
     }
 
     void animatePlayer () {
@@ -112,12 +116,15 @@ public class PlayerController : MonoBehaviour
             {
                 transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * runningSpeed);
                 transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * runningSpeed, 0, 0);
+                
             }
             else
             {
+                sonidoAndar();
                 transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
                 transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * movementSpeed, 0, 0);
             }
+
             
 
             var angle = 0f;
@@ -165,16 +172,16 @@ public class PlayerController : MonoBehaviour
             cam.transform.position = Vector3.Slerp(cam.transform.position, new Vector3(transform.GetChild(0).position.x, transform.GetChild(0).position.y + offsetCamera, transform.GetChild(0).position.z - offsetCamera), Time.deltaTime * camTriggers[1].GetComponent<CameraTrigger>().speed);
             cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, Quaternion.Euler(camTriggers[0].GetComponent<CameraTrigger>().getRotationX(), camTriggers[0].GetComponent<CameraTrigger>().getRotationY(), 0), Time.deltaTime * camTriggers[0].GetComponent<CameraTrigger>().speed);
         }
-            
-            //MOVER CAMARA CON EL PLAYER
 
-            
+        //MOVER CAMARA CON EL PLAYER
+
         
-        
-        
-        
-        
-        
+
+
+
+
+
+
     }
 
     public void moveMobilePlayer (Vector2 direction) {
@@ -187,6 +194,8 @@ public class PlayerController : MonoBehaviour
         //ESTE MÉTODO ES EJECUTADO DESDE VIRTUALJOYSTICK.CS
         vertical = Mathf.Abs(direction.y);
         horizontal = Mathf.Abs(direction.x);
+
+        
 
         if (Mathf.Abs(vertical) > delay || Mathf.Abs(horizontal) > delay){
             transform.Translate(0, 0, direction.y * Time.deltaTime * runningSpeed);
@@ -212,5 +221,15 @@ public class PlayerController : MonoBehaviour
     public void disable () {
         enabled = false;
         animateInRoller = true;
+    }
+
+    private void sonidoAndar()
+    {/*
+        //sonido andar
+        while (Mathf.Abs(vertical) > delay || Mathf.Abs(horizontal) > delay)
+        {
+            //sonidoPasos.clip = pasos[Mathf.FloorToInt(Random.Range(0, 4.99f))];
+            //sonidoPasos.Play();
+        }*/
     }
 }
