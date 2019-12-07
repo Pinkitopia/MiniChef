@@ -11,7 +11,11 @@ TagManager:
   - Ingredient
   - Ingredient2
   - Drawer
+
+  - UISprite
+
   - Cookware
+
   layers:
   - Default
   - TransparentFX

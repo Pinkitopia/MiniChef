@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
             else
             {
 
-                cam.transform.position = Vector3.Slerp(cam.transform.position, new Vector3(transform.GetChild(0).position.x, transform.GetChild(0).position.y + offsetCamera, transform.GetChild(0).position.z - offsetCamera), Time.deltaTime * camTriggers[0].GetComponent<CameraTrigger>().speed);
+                cam.transform.position = Vector3.Slerp(cam.transform.position, new Vector3(transform.GetChild(0).position.x, camTriggers[0].GetComponent<CameraTrigger>().getPositionY(), transform.GetChild(0).position.z - offsetCamera), Time.deltaTime * camTriggers[0].GetComponent<CameraTrigger>().speed);
             }
 
             cam.transform.rotation = Quaternion.Slerp(cam.transform.rotation, Quaternion.Euler(camTriggers[0].GetComponent<CameraTrigger>().getRotationX(), camTriggers[0].GetComponent<CameraTrigger>().getRotationY(), 0), Time.deltaTime * camTriggers[0].GetComponent<CameraTrigger>().speed);

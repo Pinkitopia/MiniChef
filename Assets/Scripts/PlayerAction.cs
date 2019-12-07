@@ -7,6 +7,8 @@ public class PlayerAction : MonoBehaviour
     public Tool tool = null;
     private bool toolTaken = false;
     private bool rollingPinTaken = false;
+    private bool usingPan = false;
+    private bool usingPot = false;
     public bool pushingIngredient = false;
     public AudioClip pickUp;
     public AudioClip drop;
@@ -121,6 +123,21 @@ public class PlayerAction : MonoBehaviour
         {
             pushingIngredient = false;
         }
+    }
+
+    public bool GetRollingPin()
+    {
+        return rollingPinTaken;
+    }
+
+    public bool GetPan()
+    {
+        return usingPan;
+    }
+
+    public bool GetPot()
+    {
+        return usingPot;
     }
 }
 
