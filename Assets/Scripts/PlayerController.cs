@@ -66,8 +66,6 @@ public class PlayerController : MonoBehaviour
         if (enabled || animateInRoller) animatePlayer();
 
         if (animateInRoller) moveInRollingPin();
-
-        
     }
 
     void animatePlayer () {

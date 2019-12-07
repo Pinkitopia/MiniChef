@@ -106,7 +106,7 @@ public class MyMobile : MonoBehaviour
                 {
                     if (transform.parent != null)
                     {
-                        if (transform.parent.gameObject.name != "Player")
+                        if (transform.parent.gameObject.name != "Minichef")
                         {
                             GetComponent<Rigidbody>().isKinematic = false;
                         }

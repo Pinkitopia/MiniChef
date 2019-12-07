@@ -702,6 +702,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d4d847ec4b613f428100ff8d8ecd2ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &58555860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58555855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d2c9386806f1f4daa641d169185253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tool: {fileID: 0}
+  pushingIngredient: 0
+  pickUp: {fileID: 8300000, guid: a3137167308d1e04186ad539867439d6, type: 3}
+  drop: {fileID: 8300000, guid: 7124021816a913848b9aa8f1b1f8b043, type: 3}
+  playerSound: {fileID: 1910309103}
+--- !u!65 &58555861
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58555855}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7, y: 7, z: 7}
+  m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!1 &85375553
 GameObject:
   m_ObjectHideFlags: 0
@@ -9840,10 +9870,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: c904ba7d7d12fb948a9e93c8875da3bb, type: 3}
-  - {fileID: 21300000, guid: 7064f60b29498b34e9c1657aa5045daa, type: 3}
-  - {fileID: 21300000, guid: 91f3c5b96b01d1a4b9e69466f0d1baf1, type: 3}
-  - {fileID: 21300000, guid: f7c5702392c7c554a8c365b84e139153, type: 3}
+  - {fileID: 2800000, guid: c904ba7d7d12fb948a9e93c8875da3bb, type: 3}
+  - {fileID: 2800000, guid: 7064f60b29498b34e9c1657aa5045daa, type: 3}
+  - {fileID: 2800000, guid: 91f3c5b96b01d1a4b9e69466f0d1baf1, type: 3}
+  - {fileID: 2800000, guid: f7c5702392c7c554a8c365b84e139153, type: 3}
   - {fileID: 21300000, guid: 81bfc6b6e8164c048aa9325d81170116, type: 3}
   - {fileID: 21300000, guid: 2176f98dcc504af4ebf3acecca832b12, type: 3}
   - {fileID: 21300000, guid: 8bb6a9b602171e542863172d3ae2e6d2, type: 3}
@@ -19867,13 +19897,13 @@ MonoBehaviour:
   ingredienteDebug2: {fileID: 0}
   isSliced3: 0
   ingredienteDebug3: {fileID: 0}
-  horno_encendido: {fileID: 0}
-  horno_apagado: {fileID: 0}
-  sonidosHorno: {fileID: 0}
-  sarten: {fileID: 0}
-  sonidosSarten: {fileID: 0}
-  olla: {fileID: 0}
-  sonidosOlla: {fileID: 0}
+  horno_encendido: {fileID: 8300000, guid: 1d70053d7e687584bb924f89d91c9128, type: 3}
+  horno_apagado: {fileID: 8300000, guid: 324271065bb1f9349933251a79f4e730, type: 3}
+  sonidosHorno: {fileID: 1333261603}
+  sarten: {fileID: 8300000, guid: 8d44cea29bd827142abe1b95ca6a3d32, type: 3}
+  sonidosSarten: {fileID: 5735486}
+  olla: {fileID: 8300000, guid: f4b7d1f7697a57042a25d87ce89e2a67, type: 3}
+  sonidosOlla: {fileID: 1047407094}
 --- !u!1001 &1499502235
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26892,8 +26922,6 @@ GameObject:
   - component: {fileID: 1910309099}
   - component: {fileID: 1910309098}
   - component: {fileID: 1910309100}
-  - component: {fileID: 1910309101}
-  - component: {fileID: 1910309102}
   - component: {fileID: 1910309103}
   m_Layer: 0
   m_Name: Player
@@ -26965,36 +26993,6 @@ MonoBehaviour:
   circle: {fileID: 1878535087}
   outerCircle: {fileID: 1464005853}
   spriteSize: 50
---- !u!114 &1910309101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910309097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d2c9386806f1f4daa641d169185253, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tool: {fileID: 0}
-  pushingIngredient: 0
-  pickUp: {fileID: 8300000, guid: a3137167308d1e04186ad539867439d6, type: 3}
-  drop: {fileID: 8300000, guid: 7124021816a913848b9aa8f1b1f8b043, type: 3}
-  playerSound: {fileID: 1910309103}
---- !u!65 &1910309102
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910309097}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 7, y: 7, z: 7}
-  m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!82 &1910309103
 AudioSource:
   m_ObjectHideFlags: 0

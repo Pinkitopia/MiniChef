@@ -106,9 +106,16 @@ public class PlayerAction : MonoBehaviour
             pushingIngredient = true;
             if(Input.GetKeyDown(KeyCode.Space) && !hasSomething){
                 other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
                 other.gameObject.transform.SetParent(this.transform);
                 other.gameObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+10, this.transform.position.z);
                 hasSomething = true;
+            }else if (Input.GetKeyDown(KeyCode.Space) && hasSomething)
+            {
+                other.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+                other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                other.gameObject.transform.SetParent(null);
+                hasSomething = false;
             }
         }else if(other.gameObject.tag == "Cookware"){
             if(Input.GetKeyDown(KeyCode.Space) && hasSomething){
