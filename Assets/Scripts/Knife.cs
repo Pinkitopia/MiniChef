@@ -13,7 +13,6 @@ public class Knife : MonoBehaviour
     public AudioClip sonidoCuchillo2;
     public AudioSource sourceCuchillo;
 
-    
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +35,11 @@ public class Knife : MonoBehaviour
                 Debug.Log("Hola");
                 GameObject.FindGameObjectWithTag("CutPosition").GetComponent<PosIngredient>().cortado = true;
             }
+
+            sourceCuchillo.clip = Random.value > 0.5f ? sonidoCuchillo1 : sonidoCuchillo2;
+            sourceCuchillo.Play();
+
+
         }
     }
 

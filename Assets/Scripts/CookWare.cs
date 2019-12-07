@@ -67,8 +67,10 @@ public class CookWare : MonoBehaviour
     void Start()
     {
         //Sonidos
-        //sonidosOlla.clip = olla;
-        //sonidosSarten.clip = sarten;
+
+        sonidosOlla.clip = olla;
+        sonidosSarten.clip = sarten;
+
 
         //salidaPos = salidaPosgameObject.transform.position;
         ingredientes = new List<ObjetoIngrediente>(maxIngredientes);
