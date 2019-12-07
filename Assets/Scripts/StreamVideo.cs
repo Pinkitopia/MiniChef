@@ -16,7 +16,8 @@ public class StreamVideo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(playVideo());
+        videoPlayer.loopPointReached += EndReached;
+        //StartCoroutine(playVideo());
     }
 
     // Update is called once per frame
