@@ -32,6 +32,9 @@ public class MenuController : MonoBehaviour
         menuDificultad.SetActive(false);
         menuCreditos.SetActive(false);
         menuConfig.SetActive(false);
+        imagenDificil.enabled = false;
+        imagenFacil.enabled = false;
+        imagenMedia.enabled = false;
     }
 
     // Update is called once per frame

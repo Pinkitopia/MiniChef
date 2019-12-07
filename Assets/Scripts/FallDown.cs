@@ -21,9 +21,18 @@ public class FallDown : MonoBehaviour
             GetComponent<Rigidbody>().isKinematic = true;
         }
 
+        
         if (col.gameObject.tag == "Player" && !GameObject.FindGameObjectWithTag("CutPosition").GetComponent<PosIngredient>().isReady)
         {
-            GetComponent<Rigidbody>().isKinematic = false;
+            if (transform.parent != null){
+                if (transform.parent.gameObject.name != "Player"){
+                    GetComponent<Rigidbody>().isKinematic = false;
+                } else {
+                    GetComponent<Rigidbody>().isKinematic = true;
+                }
+            } else {
+                    GetComponent<Rigidbody>().isKinematic = true;
+            }
         }
        
     }

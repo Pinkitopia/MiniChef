@@ -15,6 +15,8 @@ public class PlayerAction : MonoBehaviour
 
     private GameObject[] availableTools;
 
+    private bool hasSomething;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -78,8 +80,6 @@ public class PlayerAction : MonoBehaviour
                 tool.Action();
             }
         }
-
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -96,8 +96,17 @@ public class PlayerAction : MonoBehaviour
         if (other.gameObject.tag == "Ingredient")
         {
             pushingIngredient = true;
+            if(Input.GetKeyDown(KeyCode.Space) && !hasSomething){
+                other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                other.gameObject.transform.SetParent(this.transform);
+                other.gameObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+10, this.transform.position.z);
+                hasSomething = true;
+            }
+        }else if(other.gameObject.tag == "Cookware"){
+            if(Input.GetKeyDown(KeyCode.Space) && hasSomething){
+                other.gameObject.GetComponent<CookWare>().AnadirIngrediente(this.transform.GetChild(1).gameObject);
+            }
         }
-
     }
 
     private void OnTriggerExit(Collider other)
