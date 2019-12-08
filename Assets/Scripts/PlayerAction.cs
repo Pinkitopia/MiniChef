@@ -122,6 +122,8 @@ public class PlayerAction : MonoBehaviour
         if (other.gameObject.tag == "Ingredient")
         {
             pushingIngredient = true;
+        }else if(other.gameObject.tag == "Cookware"){
+            dontDrop = true;
         }
     }
 
@@ -144,14 +146,13 @@ public class PlayerAction : MonoBehaviour
         }else if(other.gameObject.tag == "Cookware"){
             dontDrop = true;
             if((Input.GetKeyDown(KeyCode.Space) || button.getPulsado()) && hasSomething){
+                
                 myIngredient.transform.parent = null;
                 other.gameObject.GetComponent<CookWare>().AnadirIngrediente(myIngredient);
                 hasSomething = false;
             }else if((Input.GetKeyDown(KeyCode.Space) || button.getPulsado()) && !hasSomething){
                 other.gameObject.GetComponent<CookWare>().EnviarIngrediente();
             }
-        }else{
-            dontDrop = false;
         }
     }
 
@@ -160,6 +161,8 @@ public class PlayerAction : MonoBehaviour
         if (other.gameObject.tag == "Ingredient")
         {
             pushingIngredient = false;
+        }else if(other.gameObject.tag == "Cookware"){
+            dontDrop = false;
         }
     }
 

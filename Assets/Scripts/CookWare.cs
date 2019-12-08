@@ -49,6 +49,7 @@ public class CookWare : MonoBehaviour
     private List<ObjetoIngrediente> ingredientesABorrar;
     private bool sendOne = false;
     private bool ternBool = false, brocBool = false, noodBool = false;
+    private GameObject myIngre;
 
     public struct ObjetoIngrediente
     {
@@ -115,9 +116,10 @@ public class CookWare : MonoBehaviour
                 }else if(isCinta) {
                     ingredientesABorrar[j].objeto.transform.parent = null;
                     if(CocinaTipo == CocinaType.sarten){
+                        myIngre = ingredientesABorrar[j].objeto;
                         ingredientesABorrar[j].objeto.transform.SetParent(null);
                         ingredientesABorrar[j].objeto.GetComponent<FallDown>().recover();
-                        generateBowl(j, ingredientesABorrar.Count, ingredientesABorrar[j].objeto);
+                        generateBowl(j, ingredientesABorrar.Count, myIngre);
                     }else{
                         salidaGameObject.GetComponent<CintaMec>().AnadirComida(ingredientesABorrar[j].objeto);
                     }
@@ -220,6 +222,7 @@ public class CookWare : MonoBehaviour
     {
         if (ingredientes.Count < maxIngredientes)
         {
+            Debug.Log("He recibido");
             ingrediente.transform.SetParent(null);
             ingrediente.transform.SetParent(this.transform);
             ingrediente.transform.position = (new Vector3(transform.position.x+Random.Range(-radioCacharro, radioCacharro), transform.position.y+ingrediente.transform.localScale.y/2, transform.position.z + Random.Range(-radioCacharro, radioCacharro)));
