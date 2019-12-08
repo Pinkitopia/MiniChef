@@ -29,8 +29,7 @@ public class MenuController : MonoBehaviour
 
     void Start()
     {
-        gameObject.SetActive(false);
-        background.enabled = false;
+        gameObject.SetActive(true);
         menuPrincipal.SetActive(false);
         menuDificultad.SetActive(false);
         menuCreditos.SetActive(false);
