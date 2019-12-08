@@ -17,14 +17,14 @@ public class Drawers : MonoBehaviour
     void Start()
     {
         posMin = this.transform.position;
-        if(PlayerPrefs.GetInt("Score", 2) == 3){
+        if(PlayerPrefs.GetInt("Difficulty", 2) == 3){
             cooldown = cooldown/2;
         }
     }
 
     void Update()
     {
-        if (cooldown > 0 && PlayerPrefs.GetInt("Score", 2) != 1)
+        if (cooldown > 0 && PlayerPrefs.GetInt("Difficulty", 2) != 1)
         {
             if(cooldown >= timeOpened)
             {
