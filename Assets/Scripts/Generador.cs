@@ -37,7 +37,20 @@ public class Generador : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        setGenerator(Difficulty.MEDIUM);
+        switch (PlayerPrefs.GetInt("Score", 2)){
+            case 1:
+                setGenerator(Difficulty.EASY);
+                break;
+            case 2:
+                setGenerator(Difficulty.MEDIUM);
+                break;
+            case 3:
+                setGenerator(Difficulty.HARD);
+                break;
+            default:
+                setGenerator(Difficulty.MEDIUM);
+                break;
+        }
     }
 
     // Update is called once per frame

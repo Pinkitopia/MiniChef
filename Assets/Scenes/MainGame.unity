@@ -9924,8 +9924,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 9cb94ea9ba271964e97a5a6a50868ccb, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -12618,7 +12618,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588597143}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 78.4, y: 0.68, z: -63.7}
+  m_LocalPosition: {x: -88.1, y: 0.68, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 927527426}
@@ -13706,6 +13706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   segundos: 0
   tiempoRestante: 300
+  generaPedidos: {fileID: 1498413103}
 --- !u!114 &679130710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15151,7 +15152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ebc277d4b7f28c24d8a591b19e327275, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ebc277d4b7f28c24d8a591b19e327275, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15159,7 +15160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ebc277d4b7f28c24d8a591b19e327275, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ebc277d4b7f28c24d8a591b19e327275, type: 3}
       propertyPath: m_LocalRotation.x
@@ -28371,7 +28372,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 11900dff713cc0a4586cd943bea0b46a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9cb94ea9ba271964e97a5a6a50868ccb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -35392,7 +35393,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1759643186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -100.4, y: 0, z: 0.2}
+  m_LocalPosition: {x: -117.6, y: 0, z: -19.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1863314201}

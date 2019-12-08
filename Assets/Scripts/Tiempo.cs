@@ -10,13 +10,16 @@ public class Tiempo : MonoBehaviour
 {
 	
 	public float segundos = 0;
-	public int tiempoRestante = 60;
+	public int tiempoRestante = 300;
 	private TMP_Text textoTiempo;
+
+	public Generador generaPedidos;
 	
     // Start is called before the first frame update
     void Start()
     {
         textoTiempo = GetComponent<TMP_Text>();
+		tiempoRestante = 600;
     }
 
     // Update is called once per frame
@@ -27,7 +30,8 @@ public class Tiempo : MonoBehaviour
 		textoTiempo.text = toTime(tiempoRestante-segundosPasados);
 		
 		if(tiempoRestante-segundosPasados <= 0){
-			Debug.Log("Sacabao el tiempo payasa");
+			PlayerPrefs.SetInt("points", generaPedidos.playerPoints);
+			SceneManager.LoadScene(2, LoadSceneMode.Single);
 		}
 		
     }

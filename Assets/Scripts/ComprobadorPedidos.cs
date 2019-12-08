@@ -25,6 +25,7 @@ public class ComprobadorPedidos : MonoBehaviour
     public void comprobarPedido (GameObject recipe){
         bool correct = true;
         if (recipe.name == "MasaPizza"){
+            
             //Tenemos una pizza
             /*Debug.Log(recipe.transform.GetChild(5).gameObject.activeSelf+" "+
              recipe.transform.GetChild(6).gameObject.activeSelf+" "+
@@ -43,7 +44,11 @@ public class ComprobadorPedidos : MonoBehaviour
                 //Enseñar al jugador algo visual de que lo ha hecho bien
             } else {
                 Debug.Log("Incorrect");
+                generaPedidos.removeRecipe("");
             }
+
+            recipe.gameObject.transform.SetParent(null);
+            recipe.GetComponent<Dough>().restore();
         } else if (recipe.name == "BolNoodles"){
             //Tenemos unos noodles
             Bowl component = recipe.GetComponent<Bowl> ();
@@ -57,6 +62,7 @@ public class ComprobadorPedidos : MonoBehaviour
                 //Enseñar al jugador algo visual de que lo ha hecho bien
             } else {
                 Debug.Log("Incorrect Noodles");
+                generaPedidos.removeRecipe("");
             }
             /*List <Ingredient> ingredients = recipe.GetComponent<Bowl>().ingredients;
             if ((ingredients.Count == 4 && generaPedidos.difficulty == Generador.Difficulty.MEDIUM) || (ingredients.Count == 4 && generaPedidos.difficulty == Generador.Difficulty.EASY) || (generaPedidos.difficulty == Generador.Difficulty.HARD && ingredients.Count == 4 && recipe.GetComponent<Bowl>().salt && recipe.GetComponent<Bowl>().soy)){

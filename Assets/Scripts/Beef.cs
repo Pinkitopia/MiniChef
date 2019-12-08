@@ -14,7 +14,6 @@ public class Beef : Ingredient
 
     public override bool cook()
     {
-        Debug.Log("Cocinao");
         if(state == FoodState.beefState.raw)
         {
             //Material yourMaterial = cocinado;

@@ -13,6 +13,19 @@ public class FallDown : MonoBehaviour
     }
 
     public void recover(){
+        if(this.name == "ternera"){
+            this.GetComponent<Beef>().state = FoodState.beefState.raw;
+            this.transform.GetChild(0).gameObject.SetActive(true);
+            this.transform.GetChild(1).gameObject.SetActive(false);
+        }else if(this.name == "Brocoli"){
+            this.GetComponent<Brocoli>().state = FoodState.brocoliState.giant;
+            this.transform.GetChild(0).gameObject.SetActive(true);
+            this.transform.GetChild(1).gameObject.SetActive(false);
+        }else if(this.name == "Pepperoni"){
+            this.GetComponent<Pepperoni>().state = FoodState.pepperoniState.raw;
+            this.transform.GetChild(0).gameObject.SetActive(true);
+            this.transform.GetChild(1).gameObject.SetActive(false);
+        }
         transform.position = initialPosition;
         transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
         GetComponent<Rigidbody>().isKinematic = true;

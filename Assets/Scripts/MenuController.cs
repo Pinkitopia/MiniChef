@@ -72,8 +72,10 @@ public class MenuController : MonoBehaviour
     public void IdiomaOnClick () {
         if (language == idioma.ENGLISH){
             language = idioma.ESPANOL;
+            PlayerPrefs.SetInt("language", 0);
         } else {
             language = idioma.ENGLISH;
+            PlayerPrefs.SetInt("language", 1);
         }
 
         ChangeLanguage();
@@ -100,6 +102,7 @@ public class MenuController : MonoBehaviour
         imagenMedia.enabled = false;
         imagenDificil.enabled = false;
         dificultad = Generador.Difficulty.EASY;
+        PlayerPrefs.SetInt("Difficulty", 1);
     }
 
     public void setDifficultyMedium() {
@@ -107,6 +110,7 @@ public class MenuController : MonoBehaviour
         imagenMedia.enabled = true;
         imagenDificil.enabled = false;
         dificultad = Generador.Difficulty.MEDIUM;
+        PlayerPrefs.SetInt("Difficulty", 2);
     }
 
     public void setDifficultyHard() {
@@ -114,6 +118,7 @@ public class MenuController : MonoBehaviour
         imagenMedia.enabled = false;
         imagenDificil.enabled = true;
         dificultad = Generador.Difficulty.HARD;
+        PlayerPrefs.SetInt("Difficulty", 3);
     }
 
     public void OpenInstagram()

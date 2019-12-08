@@ -130,4 +130,15 @@ public class Dough : Ingredient
             GetComponentInChildren<MeshCollider>().enabled = true;
         }
     }
+
+    public void restore () {
+        tomato = false;
+        toppings = new List<ID>();
+        state = FoodState.doughState.raw;
+        gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        for (int i = 1; i < 9; i++){
+            gameObject.transform.GetChild(i).gameObject.SetActive(false);
+        }
+        this.GetComponent<FallDown>().recover();
+    }
 }

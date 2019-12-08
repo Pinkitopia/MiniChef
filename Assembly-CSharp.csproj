@@ -68,6 +68,7 @@
      <Compile Include="Assets\Scripts\Bacon.cs" />
      <Compile Include="Assets\Scripts\Beef.cs" />
      <Compile Include="Assets\Scripts\BillBoard.cs" />
+     <Compile Include="Assets\Scripts\BotonContinuarGameOver.cs" />
      <Compile Include="Assets\Scripts\BotonRecetas.cs" />
      <Compile Include="Assets\Scripts\Bowl.cs" />
      <Compile Include="Assets\Scripts\Brocoli.cs" />
