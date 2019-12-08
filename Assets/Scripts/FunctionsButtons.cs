@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class FunctionsButtons : MonoBehaviour
@@ -30,7 +31,7 @@ public class FunctionsButtons : MonoBehaviour
 
     public void OnBack()
     {
-
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 
     void Update()
