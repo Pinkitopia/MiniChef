@@ -38,6 +38,6 @@ public class StreamVideo : MonoBehaviour
     {
         rawImage.enabled = false;
         menuStart.SetActive(true);
-        background.enabled = true;
+        background.enabled = false;
     }
 }

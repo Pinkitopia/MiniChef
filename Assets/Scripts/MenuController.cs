@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MenuController : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class MenuController : MonoBehaviour
     public GameObject menuDificultad;
     public GameObject menuCreditos;
     public GameObject menuConfig;
+
+    public TextMeshProUGUI[] textos;
 
     public enum idioma {
         ESPANOL, ENGLISH
@@ -72,6 +75,8 @@ public class MenuController : MonoBehaviour
         } else {
             language = idioma.ENGLISH;
         }
+
+        ChangeLanguage();
     }
 
     public void contactOnClick() {
@@ -109,5 +114,49 @@ public class MenuController : MonoBehaviour
         imagenMedia.enabled = false;
         imagenDificil.enabled = true;
         dificultad = Generador.Difficulty.HARD;
+    }
+
+    public void OpenInstagram()
+    {
+        Application.OpenURL("https://www.instagram.com/pinkitopia/");
+    }
+
+    public void OpenTwitter()
+    {
+        Application.OpenURL("https://twitter.com/pinkitopia");
+    }
+
+    public void OpenWeb()
+    {
+        Application.OpenURL("https://pinkitopia-studio.github.io/");
+    }
+
+    private void ChangeLanguage()
+    {
+        if(language == idioma.ESPANOL)
+        {
+            textos[0].SetText("Pulsa una TECLA para comenzar");
+            textos[1].SetText("Comenzar");
+            textos[2].SetText("Dificultad");
+            textos[3].SetText("Atras");
+            textos[4].SetText("Jugar");
+            textos[5].SetText("Atras");
+            textos[6].SetText("Configuracion");
+            textos[7].SetText("Espanol");
+            textos[8].SetText("Atras");
+        }
+
+        if(language == idioma.ENGLISH)
+        {
+            textos[0].SetText("Press any KEY to start");
+            textos[1].SetText("Start");
+            textos[2].SetText("Difficulty");
+            textos[3].SetText("Back");
+            textos[4].SetText("Play");
+            textos[5].SetText("Back");
+            textos[6].SetText("Configuration");
+            textos[7].SetText("English");
+            textos[8].SetText("Back");
+        }
     }
 }
