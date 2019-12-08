@@ -15,6 +15,7 @@ public class Pedido
     public Pedido (float maxTime, float points, String recipe) {
         this.maxTime = maxTime;
         this.timeLeft = maxTime;
+        this.recipe = recipe;
     }
 
     // Update is called once per frame

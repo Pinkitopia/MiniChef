@@ -24,46 +24,24 @@ public class ComprobadorPedidos : MonoBehaviour
     
     public void comprobarPedido (GameObject recipe){
         bool correct = true;
-        if (recipe.name == "Dough"){
+        if (recipe.name == "MasaPizza"){
             //Tenemos una pizza
-            List <Ingredient> toppings = recipe.GetComponent<Dough>().toppings;
-            if (toppings.Count == 4 && recipe.GetComponent<Dough>().tomato){
-                ID [] correctStates = new ID [2];
-                correctStates[1] = FoodState.cheeseState.spread;
-                correctStates[0] = FoodState.pepperoniState.sliced;
-                for (int i = 0; i < 3; i++){
-                    Ingredient actual = toppings[0];
-                    int j = 0;
-                    while (actual.state != correctStates[i] && j < toppings.Count-1){
-                        j+=1;
-                        actual = toppings[j];
-                    }
-                    if (j == toppings.Count-1){
-                        if (actual.state == correctStates[i]){
-                            toppings.RemoveAt(j);
-                        } else {
-                            correct = false;
-                        }
-                    } else {
-                        toppings.RemoveAt(j);
-                    }
-                }
-
-                //Comprobar bacon o piña
-                if (correct){
-                    Ingredient ultimo = toppings[0];
-                    toppings.RemoveAt(0);
-                    correct = (ultimo.state == FoodState.baconState.raw || ultimo.state == FoodState.pineappleState.raw);
-                }
-                if (correct){
-                    correct = (recipe.GetComponent<Dough>().state == FoodState.doughState.cooked);
-                }
-            } else {
-                correct = false;
+            /*Debug.Log(recipe.transform.GetChild(5).gameObject.activeSelf+" "+
+             recipe.transform.GetChild(6).gameObject.activeSelf+" "+
+             (recipe.transform.GetChild(4).gameObject.activeSelf ||
+              recipe.transform.GetChild(5).gameObject.activeSelf)+" "+
+               recipe.GetComponent<Dough>().tomato+" "+
+               (recipe.GetComponent<Dough>().state == FoodState.doughState.cooked));*/
+            correct = (recipe.transform.GetChild(5).gameObject.activeSelf && recipe.transform.GetChild(6).gameObject.activeSelf && (recipe.transform.GetChild(7).gameObject.activeSelf || recipe.transform.GetChild(8).gameObject.activeSelf));
+            if (correct && recipe.GetComponent<Dough>().tomato){
+                correct = (recipe.GetComponent<Dough>().state == FoodState.doughState.cooked);
             }
             if (correct){
+                Debug.Log("Correct");
                 //Borrar una pizza de la lista de pedidos
                 //Enseñar al jugador algo visual de que lo ha hecho bien
+            } else {
+                Debug.Log("Incorrect");
             }
         } else if (recipe.name == "Bowl"){
             //Tenemos unos noodles

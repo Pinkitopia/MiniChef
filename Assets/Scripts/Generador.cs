@@ -28,6 +28,8 @@ public class Generador : MonoBehaviour
 
     public int playerPoints = 0;
 
+    public GameObject tarjetones;
+
 
     // Start is called before the first frame update
     void Start()
@@ -71,6 +73,7 @@ public class Generador : MonoBehaviour
                 break;
             }
         }
+        renderTarjetones();
     }
 
     public void setGenerator (Difficulty diff) {
@@ -96,6 +99,7 @@ public class Generador : MonoBehaviour
             break;
         }
         tasks.Add(first);
+        renderTarjetones();
     }
 
     public void addNewRecipe () {
@@ -120,6 +124,8 @@ public class Generador : MonoBehaviour
             break;
         }
         tasks.Add(next);
+        renderTarjetones();
+        //PINTAR TARJETON EN UI
     }
 
     public void removeRecipe () {
@@ -127,5 +133,24 @@ public class Generador : MonoBehaviour
          FALTA POR IMPLEMENTAR. POR AHORA, DELETEA EL PRIMER PEDIDO Y PUNTO UWUNTU
          */
         tasks.RemoveAt(0);
+        renderTarjetones();
+    }
+
+    public void renderTarjetones () {
+        for (int i = 0; i < 5; i++){
+            if (i < tasks.Count){
+                tarjetones.transform.GetChild(i).gameObject.SetActive(true);
+                Debug.Log(tasks[i].recipe);
+                if (tasks[i].recipe == "Pizza"){
+                    tarjetones.transform.GetChild(i).GetChild(1).gameObject.SetActive(true);
+                    tarjetones.transform.GetChild(i).GetChild(0).gameObject.SetActive(false);
+                } else {
+                    tarjetones.transform.GetChild(i).GetChild(1).gameObject.SetActive(false);
+                    tarjetones.transform.GetChild(i).GetChild(0).gameObject.SetActive(true);
+                }
+            } else {
+                tarjetones.transform.GetChild(i).gameObject.SetActive(false);
+            }
+        }
     }
 }

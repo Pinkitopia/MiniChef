@@ -70,6 +70,7 @@ public class CintaMec : MonoBehaviour
     public void AnadirComida(GameObject comida)
     {
         comidas.Add(new Comida(comida, 1));
+        comida.transform.SetParent(null);
         comida.transform.SetParent(this.transform);
         Vector3 cpos = comida.transform.position;
         Vector3 wppos = waypoints[0].transform.position;

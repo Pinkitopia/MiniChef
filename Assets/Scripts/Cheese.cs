@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Cheese : Ingredient
 {
+
+    void Start () {
+        state = FoodState.cheeseState.ball;
+    }
+
     public override bool roast()
     {
         if (state == FoodState.cheeseState.spread)
