@@ -13,8 +13,8 @@ public class Pedido
     public String recipe; //Recipe to do on this task.
         
     public Pedido (float maxTime, float points, String recipe) {
-        this.maxTime = maxTime;
-        this.timeLeft = maxTime;
+        this.maxTime = maxTime*2;
+        this.timeLeft = maxTime*2;
         this.recipe = recipe;
     }
 
