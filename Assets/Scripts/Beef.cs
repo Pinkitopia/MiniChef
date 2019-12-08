@@ -12,45 +12,34 @@ public class Beef : Ingredient
         state = FoodState.beefState.raw;    
     }
 
-    void OnTriggerEnter(Collider col)
-    {
-
-        if (col.gameObject.name == "KnifeKitchen" && GameObject.FindGameObjectWithTag("CutPosition").GetComponent<PosIngredient>().isReady)
-        {
-            this.cut();
-            Debug.Log("CORTADO");
-        }
-    }
-
     public override bool cook()
     {
         Debug.Log("Cocinao");
         if(state == FoodState.beefState.raw)
         {
-            Material yourMaterial = cocinado;
-            this.GetComponent<Renderer>().sharedMaterial = yourMaterial;
+            //Material yourMaterial = cocinado;
+            //this.GetComponent<Renderer>().sharedMaterial = yourMaterial;
             state = FoodState.beefState.cooked;
             return true;
         }
         else if (state == FoodState.beefState.dicedRaw)
         {
-            Material yourMaterial = cocinado;
-            this.GetComponent<Renderer>().sharedMaterial = yourMaterial;
-            state = FoodState.beefState.cooked;
+            //Material yourMaterial = cocinado;
+            //this.GetComponent<Renderer>().sharedMaterial = yourMaterial;
             state = FoodState.beefState.dicedCooked;
             return true;
         }
         else if (state == FoodState.beefState.cooked)
         {
-            Material yourMaterial = quemado;
-            this.GetComponent<Renderer>().sharedMaterial = yourMaterial;
+            //Material yourMaterial = quemado;
+            //this.GetComponent<Renderer>().sharedMaterial = yourMaterial;
             state = FoodState.beefState.cooked;
             return true;
         }
         else if (state == FoodState.beefState.dicedCooked)
         {
-            Material yourMaterial = quemado;
-            this.GetComponent<Renderer>().sharedMaterial = yourMaterial;
+            //Material yourMaterial = quemado;
+            //this.GetComponent<Renderer>().sharedMaterial = yourMaterial;
             state = FoodState.beefState.cooked;
             return true;
         }

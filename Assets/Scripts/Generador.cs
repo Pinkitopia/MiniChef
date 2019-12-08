@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
 
 public class Generador : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class Generador : MonoBehaviour
     public int playerPoints = 0;
 
     public GameObject tarjetones;
+
+    public TMP_Text texto;
 
 
     // Start is called before the first frame update
@@ -74,6 +77,7 @@ public class Generador : MonoBehaviour
             }
         }
         renderTarjetones();
+        texto.text = playerPoints + "p";
     }
 
     public void setGenerator (Difficulty diff) {
@@ -128,11 +132,27 @@ public class Generador : MonoBehaviour
         //PINTAR TARJETON EN UI
     }
 
-    public void removeRecipe () {
-         /*
-         FALTA POR IMPLEMENTAR. POR AHORA, DELETEA EL PRIMER PEDIDO Y PUNTO UWUNTU
-         */
-        tasks.RemoveAt(0);
+    public void removeRecipe (String recipe) {
+        int borrar = -1;
+        for (int i = 0; i < tasks.Count; i++){
+            if (tasks[i].recipe == recipe){
+                borrar = i;
+                switch(difficulty){
+                    case Difficulty.EASY:
+                        playerPoints += easyPoints;
+                        break;
+                    case Difficulty.MEDIUM:
+                        playerPoints += mediumPoints;
+                        break;
+                    case Difficulty.HARD:
+                        playerPoints += hardPoints;
+                        break;
+                }
+                break;
+            }
+        }
+        if (borrar != -1) tasks.RemoveAt(borrar);
+        else playerPoints -= 50;
         renderTarjetones();
     }
 
@@ -148,8 +168,11 @@ public class Generador : MonoBehaviour
                     tarjetones.transform.GetChild(i).GetChild(1).gameObject.SetActive(false);
                     tarjetones.transform.GetChild(i).GetChild(0).gameObject.SetActive(true);
                 }
+                tarjetones.transform.GetChild(i).GetChild(2).gameObject.SetActive(true);
+                tarjetones.transform.GetChild(i).GetChild(2).gameObject.GetComponent<TMP_Text>().text = tasks[i].getTime() + "%";
             } else {
                 tarjetones.transform.GetChild(i).gameObject.SetActive(false);
+                tarjetones.transform.GetChild(i).GetChild(2).gameObject.SetActive(false);
             }
         }
     }
