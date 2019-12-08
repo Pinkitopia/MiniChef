@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (playerAction.GetRollingPin())
         {
            
@@ -51,6 +52,6 @@ public class GameManager : MonoBehaviour
         else if (playerAction.GetPot())
         {
             GameObject.FindGameObjectWithTag("UISprite").GetComponent<RawImage>().texture = changeImage.images[2];
-        }
+        }*/
     }
 }

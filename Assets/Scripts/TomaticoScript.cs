@@ -9,10 +9,12 @@ public class TomaticoScript : MonoBehaviour
     private GameObject player;
     private GameObject masa;
 
+    public ButtonController button;
 
     // Start is called before the first frame update
     void Start()
     {
+        button = GameObject.FindGameObjectWithTag("Button").GetComponent<ButtonController>();
         player = GameObject.FindGameObjectWithTag("Player");
         masa = GameObject.Find("MasaPizza");
     }
@@ -20,7 +22,7 @@ public class TomaticoScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && playerNear && masaNear)
+        if ((Input.GetKeyDown(KeyCode.Space) || button.getPulsado()) && playerNear && masaNear)
         {
             masa.GetComponent<Dough>().addTomato();
             

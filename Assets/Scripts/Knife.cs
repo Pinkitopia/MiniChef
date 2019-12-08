@@ -13,6 +13,8 @@ public class Knife : MonoBehaviour
     public AudioClip sonidoCuchillo2;
     public AudioSource sourceCuchillo;
 
+    public ButtonController button;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +27,7 @@ public class Knife : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && playerNear)
+        if ((Input.GetKeyDown(KeyCode.Space)||button.getPulsado()) && playerNear)
         {
             anim.SetTrigger("space");
             sourceCuchillo.clip = Random.value > 0.5f ? sonidoCuchillo1 : sonidoCuchillo2;

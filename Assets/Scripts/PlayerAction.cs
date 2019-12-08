@@ -25,12 +25,17 @@ public class PlayerAction : MonoBehaviour
     private bool justNow = false;
     private bool dontDrop = false;
 
+    public ButtonController button;
+
+    public ButtonMController buttonM;
+
     // Start is called before the first frame update
     void Start()
     {
+        button = GameObject.FindGameObjectWithTag("Button").GetComponent<ButtonController>();
         availableTools = GameObject.FindGameObjectsWithTag("Tool");
         anim = GetComponentInChildren<Animator>();
-        
+        buttonM = GameObject.FindGameObjectWithTag("ButtonM").GetComponent<ButtonMController>();
     }
 
     // Update is called once per frame
@@ -38,7 +43,7 @@ public class PlayerAction : MonoBehaviour
     {
 
         //SOLTAR LA HERRAMIENTA SI LA TENEMOS Y PULSAMOS SPACE
-        if (Input.GetKeyUp(KeyCode.Space) && toolTaken)
+        if ((Input.GetKeyDown(KeyCode.Space) || button.getPulsado()) && toolTaken)
         {
             tool.RemoveAction();
             tool = null;
@@ -57,7 +62,7 @@ public class PlayerAction : MonoBehaviour
                 {
                     Debug.Log("Estoy cerca");
                     
-                    if (Input.GetKeyUp(KeyCode.Space) && !toolTaken)
+                    if ((Input.GetKeyDown(KeyCode.Space) || button.getPulsado()) && !toolTaken)
                     {
                         //COGER HERRAMIENTA
                         tool = obj.GetComponent<Tool>();
@@ -85,7 +90,7 @@ public class PlayerAction : MonoBehaviour
 
 
         //ACTIVAR HERRAMIENTA (SU ACCION PROPIA) SI LA TENEMOS COGIDA
-        if (Input.GetKeyUp(KeyCode.M) && toolTaken)
+        if ((Input.GetKeyUp(KeyCode.M) || buttonM.getPulsado()) && toolTaken)
         {
             if (!tool.isActive)
             {
@@ -93,7 +98,7 @@ public class PlayerAction : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && hasSomething && !justNow && !dontDrop)
+        if ((Input.GetKeyDown(KeyCode.Space) || button.getPulsado()) && hasSomething && !justNow && !dontDrop)
         {
                 myIngredient.GetComponent<Rigidbody>().isKinematic = false;
                 //myIngredient.GetComponent<Rigidbody>().detectCollisions = true;
@@ -125,7 +130,7 @@ public class PlayerAction : MonoBehaviour
         if (other.gameObject.tag == "Ingredient")
         {
             pushingIngredient = true;
-            if(Input.GetKeyDown(KeyCode.Space) && !hasSomething){
+            if((Input.GetKeyDown(KeyCode.Space) || button.getPulsado()) && !hasSomething){
                 other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 //other.gameObject.GetComponent<Rigidbody>().detectCollisions = false;
                 other.gameObject.transform.SetParent(this.transform);
@@ -138,11 +143,11 @@ public class PlayerAction : MonoBehaviour
             }
         }else if(other.gameObject.tag == "Cookware"){
             dontDrop = true;
-            if(Input.GetKeyDown(KeyCode.Space) && hasSomething){
+            if((Input.GetKeyDown(KeyCode.Space) || button.getPulsado()) && hasSomething){
                 myIngredient.transform.parent = null;
                 other.gameObject.GetComponent<CookWare>().AnadirIngrediente(myIngredient);
                 hasSomething = false;
-            }else if(Input.GetKeyDown(KeyCode.Space) && !hasSomething){
+            }else if((Input.GetKeyDown(KeyCode.Space) || button.getPulsado()) && !hasSomething){
                 other.gameObject.GetComponent<CookWare>().EnviarIngrediente();
             }
         }else{

@@ -11,9 +11,12 @@ public class MyMobile : MonoBehaviour
 
     public string blockAxis = ""; //OPTIONAL (X bloquea sobre eje x, y sobre eje y, z sobre eje z)
 
+    public ButtonController button;
+
     // Start is called before the first frame update
     void Start()
     {
+        button = GameObject.FindGameObjectWithTag("Button").GetComponent<ButtonController>();
         initialPos = transform.position;
         hand = handTool.transform.GetChild(1).gameObject;
     }
@@ -31,7 +34,7 @@ public class MyMobile : MonoBehaviour
                 isTaken = true;
             }
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || button.getPulsado())
             {
                 isTaken = false;
             }
