@@ -12,6 +12,12 @@ public class FallDown : MonoBehaviour
         GetComponent<Rigidbody>().isKinematic = true;
     }
 
+    public void recover(){
+        transform.position = initialPosition;
+        transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
+        GetComponent<Rigidbody>().isKinematic = true;
+    }
+
     void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.name == "floortrigger")
@@ -22,7 +28,7 @@ public class FallDown : MonoBehaviour
         }
 
         
-        if (col.gameObject.tag == "Player" && !GameObject.FindGameObjectWithTag("CutPosition").GetComponent<PosIngredient>().isReady)
+        if (col.gameObject.tag == "Player")
         {
             if (transform.parent != null){
                 if (transform.parent.gameObject.name != "Player"){

@@ -46,6 +46,7 @@ public class CookWare : MonoBehaviour
     private Vector3 salidaPos;
     private List<ObjetoIngrediente> ingredientes;
     private List<ObjetoIngrediente> ingredientesABorrar;
+    private bool sendOne = false;
 
     public struct ObjetoIngrediente
     {
@@ -102,22 +103,28 @@ public class CookWare : MonoBehaviour
         {
             for (int i = 0; i < ingredientes.Count; i++)
             {
-                ingredientes[i] = updateIngredient(ingredientes[i]);
+                ingredientes[i] = updateIngredient(ingredientes[i], i);
             }
             for (int j = 0; j < ingredientesABorrar.Count; j++)
             {
                 if(!isCinta){
+                    ingredientesABorrar[j].objeto.transform.parent = null;
                     salidaGameObject.GetComponent<CookWare>().AnadirIngrediente(ingredientesABorrar[j].objeto);
                 }else if(isCinta) {
+                    ingredientesABorrar[j].objeto.transform.parent = null;
                     salidaGameObject.GetComponent<CintaMec>().AnadirComida(ingredientesABorrar[j].objeto);
                 }
                 ingredientes.Remove(ingredientesABorrar[j]);
             }
             ingredientesABorrar.Clear();
+        } else {
+            if (transform.GetChild(1) != null){
+                gameObject.GetComponent<ComprobadorPedidos>().comprobarPedido(transform.GetChild(1).gameObject);
+            }
         }
     }
 
-    private ObjetoIngrediente updateIngredient(ObjetoIngrediente ing)
+    private ObjetoIngrediente updateIngredient(ObjetoIngrediente ing, int index)
     {
         #region Animar
         if (usesAnimation)
@@ -165,6 +172,10 @@ public class CookWare : MonoBehaviour
                 EnviarIngrediente(ing);
             }
         }
+        if(sendOne && index == 0){
+            EnviarIngrediente(ing);
+            sendOne = false;
+        }
         #endregion
 
         return ing;
@@ -172,8 +183,7 @@ public class CookWare : MonoBehaviour
 
     public void EnviarIngrediente()
     {
-
-        ingredientesABorrar.Add(ingredientes[0]);
+        sendOne = true;
     }
 
     public void EnviarIngrediente(ObjetoIngrediente ing)
@@ -185,6 +195,7 @@ public class CookWare : MonoBehaviour
     {
         if (ingredientes.Count < maxIngredientes)
         {
+            ingrediente.transform.SetParent(null);
             ingrediente.transform.SetParent(this.transform);
             ingrediente.transform.position = (new Vector3(transform.position.x+Random.Range(-radioCacharro, radioCacharro), transform.position.y+ingrediente.transform.localScale.y/2, transform.position.z + Random.Range(-radioCacharro, radioCacharro)));
             ingredientes.Add(new ObjetoIngrediente(ingrediente, Random.Range((velocidad-variabilidadVelocidad), (velocidad + variabilidadVelocidad))));

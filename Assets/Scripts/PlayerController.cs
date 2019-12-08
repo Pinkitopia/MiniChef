@@ -70,7 +70,6 @@ public class PlayerController : MonoBehaviour
 
     void animatePlayer () {
 
-        Debug.Log(vertical);
         //VELOCIDAD PARA ANIMACIONES ES UNA ÑAPA ENORME PERO FUNCIONA BIEN Y QUEDA GUAY Y NO SE HACERLO DE OTRA FORMA :D
         if (vertical != 0 || horizontal != 0)
             speed += 0.1f;

@@ -39,7 +39,7 @@ public class MyMobile : MonoBehaviour
         }
         else
         {
-            if (dis < 3.5f && handTool.GetComponent<HandTool>().isActive)
+            if (dis < 6f && handTool.GetComponent<HandTool>().isActive)
             {
                 isTaken = true;
             }
@@ -58,7 +58,7 @@ public class MyMobile : MonoBehaviour
                 SetAsParent(handSon);
                 transform.GetComponent<Rigidbody>().useGravity = false;
                 transform.GetComponent<Rigidbody>().isKinematic = true;
-                transform.GetComponent<Rigidbody>().detectCollisions = false;
+                //transform.GetComponent<Rigidbody>().detectCollisions = false;
 
             }
             else if (this.gameObject.tag == "Drawer") //Cajones
@@ -99,28 +99,23 @@ public class MyMobile : MonoBehaviour
         else
         {
             if(this.gameObject.tag == "Ingredient")
-            {
+            { 
                 RemoveAsParent(handSon);
                 transform.GetComponent<Rigidbody>().useGravity = true;
-                if (!GameObject.FindGameObjectWithTag("CutPosition").GetComponent<PosIngredient>().isReady)
+                if (transform.parent != null)
                 {
-                    if (transform.parent != null)
+                    if (transform.parent.gameObject.name != "Minichef")
                     {
-                        if (transform.parent.gameObject.name != "Minichef")
-                        {
-                            GetComponent<Rigidbody>().isKinematic = false;
-                        }
-                        else
-                        {
-                            GetComponent<Rigidbody>().isKinematic = true;
-                        }
+                        GetComponent<Rigidbody>().isKinematic = false;
                     }
                     else
                     {
-                        transform.GetComponent<Rigidbody>().isKinematic = false;
+                        GetComponent<Rigidbody>().isKinematic = true;
                     }
-                    
-                    
+                }
+                else
+                {
+                    transform.GetComponent<Rigidbody>().isKinematic = false;
                 }
                 transform.GetComponent<Rigidbody>().useGravity = true;
                 

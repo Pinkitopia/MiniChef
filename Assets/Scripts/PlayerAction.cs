@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAction : MonoBehaviour
 {
+    public float ingreHeight = 5;
     public Tool tool = null;
     private bool toolTaken = false;
     private bool rollingPinTaken = false;
@@ -20,6 +21,9 @@ public class PlayerAction : MonoBehaviour
     private GameObject[] availableTools;
 
     private bool hasSomething;
+    private GameObject myIngredient;
+    private bool justNow = false;
+    private bool dontDrop = false;
 
     // Start is called before the first frame update
     void Start()
@@ -88,6 +92,23 @@ public class PlayerAction : MonoBehaviour
                 tool.Action();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Space) && hasSomething && !justNow && !dontDrop)
+        {
+                myIngredient.GetComponent<Rigidbody>().isKinematic = false;
+                //myIngredient.GetComponent<Rigidbody>().detectCollisions = true;
+                if(myIngredient.name == "MasaPizza"){
+                    myIngredient.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                    myIngredient.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+                    myIngredient.transform.position = new Vector3(myIngredient.transform.position.x,0f,myIngredient.transform.position.z);
+                }else{
+                    myIngredient.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                }
+                myIngredient.transform.SetParent(null);
+                hasSomething = false;
+        }else if(justNow){
+                justNow = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -106,21 +127,26 @@ public class PlayerAction : MonoBehaviour
             pushingIngredient = true;
             if(Input.GetKeyDown(KeyCode.Space) && !hasSomething){
                 other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+                //other.gameObject.GetComponent<Rigidbody>().detectCollisions = false;
                 other.gameObject.transform.SetParent(this.transform);
-                other.gameObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+10, this.transform.position.z);
+                other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+                other.gameObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+ingreHeight, this.transform.position.z);
+                other.gameObject.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
                 hasSomething = true;
-            }else if (Input.GetKeyDown(KeyCode.Space) && hasSomething)
-            {
-                other.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-                other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-                other.gameObject.transform.SetParent(null);
-                hasSomething = false;
+                myIngredient = other.gameObject;
+                justNow = true;
             }
         }else if(other.gameObject.tag == "Cookware"){
+            dontDrop = true;
             if(Input.GetKeyDown(KeyCode.Space) && hasSomething){
-                other.gameObject.GetComponent<CookWare>().AnadirIngrediente(this.transform.GetChild(1).gameObject);
+                myIngredient.transform.parent = null;
+                other.gameObject.GetComponent<CookWare>().AnadirIngrediente(myIngredient);
+                hasSomething = false;
+            }else if(Input.GetKeyDown(KeyCode.Space) && !hasSomething){
+                other.gameObject.GetComponent<CookWare>().EnviarIngrediente();
             }
+        }else{
+            dontDrop = false;
         }
     }
 

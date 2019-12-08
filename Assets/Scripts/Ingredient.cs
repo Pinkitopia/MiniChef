@@ -16,6 +16,11 @@ public class Ingredient : Object
      * estados iniciales según qué ingrediente. La mayoría empieza en RAW
      */
 
+    public Ingredient copy (){
+        Ingredient b = new Ingredient();
+        b.state = this.state;
+        return b;
+    }
     
 
 
