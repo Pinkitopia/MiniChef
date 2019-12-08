@@ -38,15 +38,27 @@ public class ComprobadorPedidos : MonoBehaviour
             }
             if (correct){
                 Debug.Log("Correct");
+                generaPedidos.removeRecipe("Pizza");
                 //Borrar una pizza de la lista de pedidos
                 //Enseñar al jugador algo visual de que lo ha hecho bien
             } else {
                 Debug.Log("Incorrect");
             }
-        } else if (recipe.name == "Bowl"){
+        } else if (recipe.name == "BolNoodles"){
             //Tenemos unos noodles
-        
-            List <Ingredient> ingredients = recipe.GetComponent<Bowl>().ingredients;
+            Bowl component = recipe.GetComponent<Bowl> ();
+            correct = (component.brocoli && component.noodles && component.ternera);
+            Debug.Log("Ternera: " + component.ternera + " Brocoli: " + component.brocoli + " Noodles: " + component.noodles);
+            
+            if (correct){
+                Debug.Log("Correct Noodles");
+                generaPedidos.removeRecipe("Noodles");
+                //Borrar una pizza de la lista de pedidos
+                //Enseñar al jugador algo visual de que lo ha hecho bien
+            } else {
+                Debug.Log("Incorrect Noodles");
+            }
+            /*List <Ingredient> ingredients = recipe.GetComponent<Bowl>().ingredients;
             if ((ingredients.Count == 4 && generaPedidos.difficulty == Generador.Difficulty.MEDIUM) || (ingredients.Count == 4 && generaPedidos.difficulty == Generador.Difficulty.EASY) || (generaPedidos.difficulty == Generador.Difficulty.HARD && ingredients.Count == 4 && recipe.GetComponent<Bowl>().salt && recipe.GetComponent<Bowl>().soy)){
                 ID [] correctStates = new ID [3];
                 correctStates[1] = FoodState.beefState.dicedCooked;
@@ -71,8 +83,11 @@ public class ComprobadorPedidos : MonoBehaviour
                 }
             } else {
                 correct = false;
-            }
+            }*/
 
+        } else {
+            Debug.Log("No me mandes mierda por la cinta");
+            generaPedidos.playerPoints -= 50;
         }
 
         

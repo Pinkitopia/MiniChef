@@ -13,27 +13,12 @@ public class Brocoli : Ingredient
         gameObject.transform.GetChild(1).gameObject.SetActive(false);
     }
 
-    void OnTriggerEnter(Collider col)
-    {
-
-        if (col.gameObject.name == "KnifeKitchen" && GameObject.FindGameObjectWithTag("CutPosition").GetComponent<PosIngredient>().isReady)
-        {
-            this.cut();
-            Debug.Log("CORTADO");
-        }
-    }
-
     public override bool cut()
     {
         if (state == FoodState.brocoliState.giant)
         {
-            if (!cutState)
-            {
-                gameObject.transform.GetChild(0).gameObject.SetActive(false);
-                cutState = true;
-                gameObject.transform.GetChild(1).gameObject.SetActive(true);
-                return true;
-            }
+            gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            gameObject.transform.GetChild(1).gameObject.SetActive(true);
             state = FoodState.brocoliState.diced;
             return true;
         }
@@ -45,7 +30,7 @@ public class Brocoli : Ingredient
 
     public override bool cook()
     {
-        if (!cutState)
+        if (state == FoodState.brocoliState.giant)
         {
             state = FoodState.brocoliState.giantCooked;
 

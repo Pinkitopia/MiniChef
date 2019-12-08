@@ -13,6 +13,7 @@ public class CookWare : MonoBehaviour
     [Header("Ajustes")]
     [Space(5)]
     public GameObject salidaGameObject;
+    public GameObject bolPrefab;
     public bool isCinta;
     public bool isAutomatic;
     public bool usesAnimation = false;
@@ -47,6 +48,7 @@ public class CookWare : MonoBehaviour
     private List<ObjetoIngrediente> ingredientes;
     private List<ObjetoIngrediente> ingredientesABorrar;
     private bool sendOne = false;
+    private bool ternBool = false, brocBool = false, noodBool = false;
 
     public struct ObjetoIngrediente
     {
@@ -112,7 +114,13 @@ public class CookWare : MonoBehaviour
                     salidaGameObject.GetComponent<CookWare>().AnadirIngrediente(ingredientesABorrar[j].objeto);
                 }else if(isCinta) {
                     ingredientesABorrar[j].objeto.transform.parent = null;
-                    salidaGameObject.GetComponent<CintaMec>().AnadirComida(ingredientesABorrar[j].objeto);
+                    if(CocinaTipo == CocinaType.sarten){
+                        ingredientesABorrar[j].objeto.transform.SetParent(null);
+                        ingredientesABorrar[j].objeto.GetComponent<FallDown>().recover();
+                        generateBowl(j, ingredientesABorrar.Count, ingredientesABorrar[j].objeto);
+                    }else{
+                        salidaGameObject.GetComponent<CintaMec>().AnadirComida(ingredientesABorrar[j].objeto);
+                    }
                 }
                 ingredientes.Remove(ingredientesABorrar[j]);
             }
@@ -172,13 +180,30 @@ public class CookWare : MonoBehaviour
                 EnviarIngrediente(ing);
             }
         }
-        if(sendOne && index == 0){
+        if(sendOne){
             EnviarIngrediente(ing);
             sendOne = false;
         }
         #endregion
 
         return ing;
+    }
+
+    public void generateBowl(int i, int count, GameObject obj){
+        if(i >= count){
+            GameObject bowl = Instantiate(bolPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            bowl.GetComponent<Bowl>().generateFields(ternBool, brocBool, noodBool);
+            salidaGameObject.GetComponent<CintaMec>().AnadirComida(bowl);
+            ternBool = false;
+            brocBool = false;
+            noodBool = false;
+        }else if(obj.name == "ternera" && obj.transform.GetChild(1).gameObject.activeSelf){
+            ternBool = true;
+        }else if(obj.name == "Brocoli" && obj.transform.GetChild(1).gameObject.activeSelf){
+            brocBool = true;
+        }else if(obj.name == "Noodles"){
+            noodBool = true;
+        }
     }
 
     public void EnviarIngrediente()

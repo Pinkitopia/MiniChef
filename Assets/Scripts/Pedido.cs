@@ -27,6 +27,6 @@ public class Pedido
     }
 
     public int getTime(){
-        return (int) Math.Round(timeLeft/maxTime);
+        return (int) Math.Round((timeLeft/maxTime)*100);
     }
 }
