@@ -23,7 +23,7 @@ public class Dough : Ingredient
     }
     
     void OnTriggerEnter(Collider col){
-        Debug.Log("COLISION!!");
+        
         if(col.gameObject.name == "RollingPin"){
             this.roll();
             Debug.Log("Roleado!");

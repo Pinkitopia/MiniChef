@@ -8,7 +8,7 @@ using TMPro;
 public class MenuController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Image background;
+    
     public GameObject menuPrincipal;
 
     public GameObject menuDificultad;
@@ -92,7 +92,7 @@ public class MenuController : MonoBehaviour
 
     public void comenzarPartida () {
         menuDificultad.SetActive(false);
-        background.enabled = false;
+        
         SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
 

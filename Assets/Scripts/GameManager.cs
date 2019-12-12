@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     private GameObject uiTool;
 
     private PlayerAction playerAction;
-    private ChangeImage changeImage;
+    //private ChangeImage changeImage;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         //backgroundImg = canvas.transform.GetChild(3).gameObject;
         //uiTool = canvas.transform.GetChild(4).gameObject;
         playerAction = player.GetComponentInChildren<PlayerAction>();
-        changeImage = GameObject.FindGameObjectWithTag("UISprite").GetComponent<ChangeImage>();
+        //changeImage = GameObject.FindGameObjectWithTag("UISprite").GetComponent<ChangeImage>();
         
     }
 

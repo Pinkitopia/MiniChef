@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class FunctionsButtons : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public GameObject noodlesMenu;
+    public GameObject pizzaMenu;
     public GameObject[] joystickImages;
 
     public void OnPause()
@@ -22,6 +24,8 @@ public class FunctionsButtons : MonoBehaviour
     public void OnResume()
     {
         pauseMenu.SetActive(false);
+        noodlesMenu.SetActive(false);
+        pizzaMenu.SetActive(false);
         Time.timeScale = 1;
         foreach (GameObject img in joystickImages)
         {
@@ -33,6 +37,26 @@ public class FunctionsButtons : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(0, LoadSceneMode.Single);
+    }
+
+    public void OnNoodles()
+    {
+        Time.timeScale = 0;
+        noodlesMenu.SetActive(true);
+        foreach (GameObject img in joystickImages)
+        {
+            img.SetActive(false);
+        }
+    }
+
+    public void OnPizza()
+    {
+        Time.timeScale = 0;
+        pizzaMenu.SetActive(true);
+        foreach (GameObject img in joystickImages)
+        {
+            img.SetActive(false);
+        }
     }
 
     void Update()

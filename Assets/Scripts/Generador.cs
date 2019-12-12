@@ -173,7 +173,7 @@ public class Generador : MonoBehaviour
         for (int i = 0; i < 5; i++){
             if (i < tasks.Count){
                 tarjetones.transform.GetChild(i).gameObject.SetActive(true);
-                Debug.Log(tasks[i].recipe);
+                
                 if (tasks[i].recipe == "Pizza"){
                     tarjetones.transform.GetChild(i).GetChild(1).gameObject.SetActive(true);
                     tarjetones.transform.GetChild(i).GetChild(0).gameObject.SetActive(false);

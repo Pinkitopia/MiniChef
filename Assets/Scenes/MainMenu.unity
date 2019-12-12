@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8705,7 +8705,7 @@ Transform:
   m_GameObject: {fileID: 345020573}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6882342, y: 1.2683, z: 1.2683}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 1547640360}
   - {fileID: 1623971133}
@@ -11362,7 +11362,7 @@ Transform:
   m_GameObject: {fileID: 589572402}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -20.542267, y: 36.61383, z: -85.46329}
-  m_LocalScale: {x: 1.3311, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 1823999686}
   - {fileID: 1700595936}
@@ -11381,7 +11381,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028d222c4cc582846adafdcf8ce74fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background: {fileID: 0}
   menuPrincipal: {fileID: 345020573}
   menuDificultad: {fileID: 833342008}
   menuCreditos: {fileID: 710510608}
@@ -12415,7 +12414,7 @@ Transform:
   m_GameObject: {fileID: 710510608}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.016113281, y: -1.5683594, z: -5.1875}
-  m_LocalScale: {x: 1.6882342, y: 1.2683, z: 1.2683}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 1759280032}
   - {fileID: 677082703}
@@ -13574,7 +13573,7 @@ Transform:
   m_GameObject: {fileID: 833342008}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6882342, y: 1.2683, z: 1.2683}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 98870087}
   - {fileID: 2071085190}
@@ -20743,19 +20742,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2c2f009d66b8e2d4ebcb46ca8e73d354, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.000000027428358
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2c2f009d66b8e2d4ebcb46ca8e73d354, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000076703856
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2c2f009d66b8e2d4ebcb46ca8e73d354, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.72110003
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2c2f009d66b8e2d4ebcb46ca8e73d354, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.69283104
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2c2f009d66b8e2d4ebcb46ca8e73d354, type: 3}
       propertyPath: m_RootOrder
@@ -20771,7 +20770,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2c2f009d66b8e2d4ebcb46ca8e73d354, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -92.29101
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2c2f009d66b8e2d4ebcb46ca8e73d354, type: 3}
       propertyPath: m_LocalScale.x
@@ -21186,6 +21185,7 @@ GameObject:
   - component: {fileID: 1022334053}
   - component: {fileID: 1022334055}
   - component: {fileID: 1022334054}
+  - component: {fileID: 1022334056}
   m_Layer: 0
   m_Name: Salero
   m_TagString: Untagged
@@ -21252,6 +21252,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022334052}
   m_Mesh: {fileID: 4300000, guid: c962b6fcef73cb34f81ed68d16cfeaf5, type: 3}
+--- !u!95 &1022334056
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022334052}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 78f6739dcba991b4a9885c20f511da48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1026804938
 GameObject:
   m_ObjectHideFlags: 0
@@ -22406,7 +22425,7 @@ Transform:
   m_GameObject: {fileID: 1211560665}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.016113281, y: 1.9316406, z: -5.1875}
-  m_LocalScale: {x: 1.6882342, y: 1.2683, z: 1.2683}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 752248738}
   - {fileID: 14521065}
@@ -40474,9 +40493,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1988757951}
-  - component: {fileID: 1988757954}
   - component: {fileID: 1988757953}
   - component: {fileID: 1988757952}
+  - component: {fileID: 1988757954}
   m_Layer: 0
   m_Name: GizmoBigKnife
   m_TagString: Untagged
@@ -40619,7 +40638,7 @@ Animator:
   m_GameObject: {fileID: 1988757950}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cd6e6ec5c45cdd6469fb0ad59f00aaa8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2bdd63f260e9e254caf8992c9fb204bd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
